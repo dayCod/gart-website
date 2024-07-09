@@ -15,3 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
+Route::get('/about-me', [HomeController::class, 'aboutMe'])->name('about-me');
+Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
+
+Route::group(['prefix' => 'gart', 'as' => 'gart.'], function () {
+    //
+});
+
+Route::group(['prefix' => 'reise', 'as' => 'reise.'], function () {
+    //
+});
