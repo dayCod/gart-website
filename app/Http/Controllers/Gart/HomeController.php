@@ -15,4 +15,20 @@ class HomeController extends Controller
     {
         return view('gart.index');
     }
+
+    /**
+     * @return View
+     */
+    public function galleries(): View
+    {
+        return view('gart.gallery.index');
+    }
+
+    /**
+     * @return View
+     */
+    public function gallery(string $slug): View
+    {
+        return view('gart.gallery.detail');
+    }
 }

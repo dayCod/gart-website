@@ -67,7 +67,7 @@
 												<!-- Begin submenu (submenu master)
 												==================================== -->
 												<li class="tt-ol-submenu-wrap">
-													<a href="#">Gallery</a>
+													<a href="{{ route('gart.galleries') }}">Gallery</a>
 												</li>
 												<!-- End submenu (sub-master) -->
 
