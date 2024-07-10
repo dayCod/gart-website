@@ -8,7 +8,7 @@
             ============================= -->
             <div class="ph-image">
                 <div class="ph-image-inner">
-                    <img src="{{ asset('gart/about-us-bg-2.jpg') }}" alt="Image">
+                    <img src="{{ asset('gart/studio-bg-potrait.jpg') }}" alt="Image">
                 </div>
             </div>
             <!-- End page header image -->
@@ -18,9 +18,9 @@
             Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
             -->
             <div class="ph-caption">
-                <h1 class="ph-caption-title ph-appear">About</h1>
-                <div class="ph-caption-title-ghost ph-appear">About</div>
-                <div class="ph-caption-subtitle ph-appear">The House</div>
+                <h1 class="ph-caption-title ph-appear">About us</h1>
+                <div class="ph-caption-title-ghost ph-appear">Journey</div>
+                <div class="ph-caption-subtitle ph-appear">Gart Studio</div>
             </div>
             <!-- End page header caption -->
 
@@ -71,14 +71,20 @@
                     <div class="tt-col-lg-8">
 
                         <div class="text-xxlg font-alter">
-                            <p class="anim-fadeinup">Hello, we going manor who did. Do ye is considered occasion directly
-                                that. May ecstatic did surprise elegance the ignorant age. Own her miss cold. It so numerous
-                                if outlived possession.</p>
+                            <p class="anim-fadeinup">
+                                Every moment I create always leaves a deep impression. I believe that every story has the power to become an inseparable part of your journey.
+                            </p>
+                            <p class="anim-fadeinup">
+                                <em>Me: Your Story Becomes Part of Your Journey</em>
+                                <br>
+                                Every step you take, every second you pass, is part of a larger story. I am here to ensure that the story is not only remembered but also felt, enjoyed, and cherished.
+                            </p>
+                            <p class="anim-fadeinup">
+                                <em>You: My Story Becomes Part of My Journey</em>
+                                <br>
+                                In every moment, there is beauty waiting to be discovered. I am here to capture that beauty and make it part of your journey. With dedication and sincerity, I strive to immortalize meaningful stories, stories that become a part of your life.
+                            </p>
 
-                            <p class="anim-fadeinup">Fat new smallness few supposing suspicion two. Course sir awesome <a
-                                    href="https://1.envato.market/tank" target="_blank" rel="noopener">website teplates</a>
-                                add entire design. How one dull get busy dare far. At principle perfectly by sweetness do.
-                                As mr started arrival.</p>
                         </div>
 
                     </div>
@@ -94,6 +100,32 @@
                     <h2 class="tt-heading-title">Services</h2>
                 </div>
                 <div class="tt-accordion tt-ac-xlg tt-ac-borders">
+
+                    <div class="tt-accordion-item anim-fadeinup">
+                        <div class="tt-accordion-heading">
+                            <h3 class="tt-ac-head-title">Pre Wedding</h3>
+                            <div class="tt-accordion-subtext">Lorem ipsum dolor sit amet.</div>
+                            <div class="tt-accordion-caret-wrap">
+                                <div class="tt-accordion-caret magnetic-item"></div>
+                            </div>
+                        </div> <!-- /.tt-accordion-heading -->
+                        <div class="tt-accordion-content max-width-800">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci illo id quasi explicabo earum accusantium, exercitationem impedit? Dicta perferendis id ipsa deleniti reiciendis accusamus nisi?</p>
+                        </div> <!-- /.tt-accordion-content -->
+                    </div> <!-- /.tt-accordion-item -->
+
+                    <div class="tt-accordion-item anim-fadeinup">
+                        <div class="tt-accordion-heading">
+                            <h3 class="tt-ac-head-title">Post Wedding</h3>
+                            <div class="tt-accordion-subtext">Lorem ipsum dolor sit amet.</div>
+                            <div class="tt-accordion-caret-wrap">
+                                <div class="tt-accordion-caret magnetic-item"></div>
+                            </div>
+                        </div> <!-- /.tt-accordion-heading -->
+                        <div class="tt-accordion-content max-width-800">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci illo id quasi explicabo earum accusantium, exercitationem impedit? Dicta perferendis id ipsa deleniti reiciendis accusamus nisi?</p>
+                        </div> <!-- /.tt-accordion-content -->
+                    </div> <!-- /.tt-accordion-item -->
 
                     <div class="tt-accordion-item anim-fadeinup">
                         <div class="tt-accordion-heading">

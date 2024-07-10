@@ -15,7 +15,7 @@
                     We specialize in capturing unforgettable moments through our lens. Share your story with
                     us and let's create lasting memories together.</div>
                 <div class="tt-btn tt-btn-primary ph-appear margin-top-60">
-                    <a href="https://api.whatsapp.com/send/?phone=6282210866763&text=Hi there! I'm interested with your works. Could you provide more details on the pricing, and availability? Looking forward to your response. Thank you!&type=phone_number&app_absent=0"
+                    <a href="https://api.whatsapp.com/send/?phone=6288808967543&text=Hi there! I'm interested with your works. Could you provide more details on the pricing, and availability? Looking forward to your response. Thank you!&type=phone_number&app_absent=0"
                         target="_blank" rel="noopener" data-hover="Contact Here!">Contact Whatsapp Here!</a>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                             <div class="tt-grid-item isotope-item pages">
                                 <div class="ttgr-item-inner">
                                     <div class="portfolio-grid-item">
-                                        <a href="landing-page-1.html" class="pgi-image-wrap" target="_blank" rel="noopener"
+                                        <a href="{{ route('gart.index') }}" class="pgi-image-wrap" target="_blank" rel="noopener"
                                             data-cursor="View">
                                             <div class="pgi-image-holder">
                                                 <div class="pgi-image-inner anim-zoomin">
@@ -75,11 +75,13 @@
                                         <div class="pgi-caption">
                                             <div class="pgi-caption-inner">
                                                 <h2 class="pgi-title">
-                                                    <a href="landing-page-1.html" target="_blank" rel="noopener">Gart Studio
+                                                    <a href="{{ route('gart.index') }}" target="_blank" rel="noopener">Gart Studio
                                                         Project</a>
                                                 </h2>
                                                 <div class="pgi-categories-wrap">
-                                                    <div class="pgi-category">Build at 2013</div>
+                                                    <div class="pgi-category">
+                                                        <em>I become a part of your life</em>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,7 +112,9 @@
                                                         Stories</a>
                                                 </h2>
                                                 <div class="pgi-categories-wrap">
-                                                    <div class="pgi-category">Build at 2020</div>
+                                                    <div class="pgi-category">
+                                                        <em>Make Journey into History</em>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
