@@ -19,6 +19,22 @@ class HomeController extends Controller
     /**
      * @return View
      */
+    public function categories(): View
+    {
+        return view('gart.category.index');
+    }
+
+    /**
+     * @return View
+     */
+    public function category(string $slug): View
+    {
+        return view('gart.category.detail');
+    }
+
+    /**
+     * @return View
+     */
     public function galleries(): View
     {
         return view('gart.gallery.index');

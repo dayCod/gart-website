@@ -11,7 +11,7 @@
 							<!-- Begin logo
 							================ -->
 							<div class="tt-logo">
-								<a href="index-2.html">
+								<a href="{{ route('index') }}">
 									<!-- Hint: You may need to change the img height to match your logo type. You can do this from the "theme.css" file (find: ".tt-logo img"). -->
 									<img src="{{ asset('gart-logo-0.png') }}" class="tt-logo-light magnetic-item" alt="Logo"> <!-- logo light -->
 									<img src="" class="tt-logo-dark magnetic-item" alt="Logo"> <!-- logo dark -->
@@ -60,7 +60,7 @@
 												<!-- Begin submenu (submenu master)
 												==================================== -->
 												<li class="tt-ol-submenu-wrap">
-													<a href="#">Category</a>
+													<a href="{{ route('gart.categories') }}">Category</a>
 												</li>
 												<!-- End submenu (sub-master) -->
 
