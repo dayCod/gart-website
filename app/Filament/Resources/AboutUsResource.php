@@ -4,45 +4,50 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
+use App\Models\AboutUs;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
-use App\Models\IndexHomePage;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Section;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\AboutUsResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\IndexHomePageResource\Pages;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use App\Filament\Resources\IndexHomePageResource\RelationManagers;
 
-class IndexHomePageResource extends Resource
+class AboutUsResource extends Resource
 {
-    protected static ?string $model = IndexHomePage::class;
+    protected static ?string $model = AboutUs::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Index Home';
+    protected static ?string $navigationLabel = 'About Us';
 
-    protected static ?string $modelLabel = 'Index Home';
+    protected static ?string $modelLabel = 'About Us';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?string $pluralLabel = 'About Us';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Section::make([
-                    Forms\Components\TextInput::make('hero_title')
-                        ->label('Hero Title')
+                    Forms\Components\TextInput::make('title')
+                        ->label('Title')
                         ->required()
                         ->maxLength(255),
-                    Forms\Components\Textarea::make('hero_description')
-                        ->label('Hero Description')
-                        ->rows(4)
+                    Forms\Components\TextInput::make('background_title')
+                        ->label('Background Title')
                         ->required()
-                        ->columnSpanFull(),
-                    SpatieMediaLibraryFileUpload::make('index_hero_image')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('sub_title')
+                        ->label('Sub Title')
+                        ->required()
+                        ->maxLength(255),
+                    SpatieMediaLibraryFileUpload::make('about_us_image')
                         ->image()
                         ->imageEditor()
                         ->imageEditorAspectRatios([
@@ -50,11 +55,23 @@ class IndexHomePageResource extends Resource
                             '4:3',
                             '1:1',
                         ])
-                        ->label('Hero Image')
+                        ->label('About Us Image')
                         ->required()
                         ->openable()
                         ->downloadable()
                         ->columnSpanFull()
+                ]),
+                Section::make([
+                    Repeater::make('stories')
+                        ->schema([
+                            RichEditor::make('content')
+                                ->toolbarButtons([
+                                    'bold',
+                                    'italic',
+                                    'underline',
+                                ])
+                                ->columnSpanFull()
+                        ])
                 ])
             ]);
     }
@@ -63,14 +80,12 @@ class IndexHomePageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('hero_title'),
-                Tables\Columns\TextColumn::make('hero_description')
-                    ->limit(50)
-                    ->tooltip(function (TextColumn $column): ?string {
-                        return strlen($column->getState()) <= $column->getCharacterLimit()
-                            ? null
-                            : $column->getState();
-                    }),
+                Tables\Columns\TextColumn::make('title')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('background_title')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('sub_title')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -105,10 +120,10 @@ class IndexHomePageResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListIndexHomePages::route('/'),
-            'create' => Pages\CreateIndexHomePage::route('/create'),
-            'view' => Pages\ViewIndexHomePage::route('/{record}'),
-            'edit' => Pages\EditIndexHomePage::route('/{record}/edit'),
+            'index' => Pages\ListAboutUs::route('/'),
+            'create' => Pages\CreateAboutUs::route('/create'),
+            'view' => Pages\ViewAboutUs::route('/{record}'),
+            'edit' => Pages\EditAboutUs::route('/{record}/edit'),
         ];
     }
 }

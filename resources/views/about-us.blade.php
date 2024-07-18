@@ -8,7 +8,7 @@
             ============================= -->
             <div class="ph-image">
                 <div class="ph-image-inner">
-                    <img src="{{ asset('gart/studio-bg-potrait.jpg') }}" alt="Image">
+                    <img src="{{ $aboutUsData->getFirstMediaUrl() }}" alt="Image">
                 </div>
             </div>
             <!-- End page header image -->
@@ -18,9 +18,9 @@
             Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
             -->
             <div class="ph-caption">
-                <h1 class="ph-caption-title ph-appear">About us</h1>
-                <div class="ph-caption-title-ghost ph-appear">Journey</div>
-                <div class="ph-caption-subtitle ph-appear">Gart Studio</div>
+                <h1 class="ph-caption-title ph-appear">{{ $aboutUsData->title }}</h1>
+                <div class="ph-caption-title-ghost ph-appear">{{ $aboutUsData->background_title }}</div>
+                <div class="ph-caption-subtitle ph-appear">{{ $aboutUsData->sub_title }}</div>
             </div>
             <!-- End page header caption -->
 
@@ -63,7 +63,7 @@
                 <div class="tt-row">
                     <div class="tt-col-lg-4 padding-right-lg-5-p">
                         <div class="tt-heading tt-heading-sm margin-bottom-60 anim-fadeinup">
-                            <h2 class="tt-heading-title text-gray">The<br class="hide-from-md"> Story</h2>
+                            <h2 class="tt-heading-title text-gray margin-top-50">The <br>Story</h2>
                             <!-- <h3 class="tt-heading-subtitle text-gray">Subtitle</h3> -->
                         </div>
                     </div>
@@ -71,19 +71,11 @@
                     <div class="tt-col-lg-8">
 
                         <div class="text-xxlg font-alter">
-                            <p class="anim-fadeinup">
-                                Every moment I create always leaves a deep impression. I believe that every story has the power to become an inseparable part of your journey.
-                            </p>
-                            <p class="anim-fadeinup">
-                                <em>Me: Your Story Becomes Part of Your Journey</em>
-                                <br>
-                                Every step you take, every second you pass, is part of a larger story. I am here to ensure that the story is not only remembered but also felt, enjoyed, and cherished.
-                            </p>
-                            <p class="anim-fadeinup">
-                                <em>You: My Story Becomes Part of My Journey</em>
-                                <br>
-                                In every moment, there is beauty waiting to be discovered. I am here to capture that beauty and make it part of your journey. With dedication and sincerity, I strive to immortalize meaningful stories, stories that become a part of your life.
-                            </p>
+                            @foreach($aboutUsData->stories as $story)
+                                <p class="anim-fadeinup">
+                                    {!! str_replace('&nbsp;', '', html_entity_decode($story['content'])) !!}
+                                </p>
+                            @endforeach
 
                         </div>
 
