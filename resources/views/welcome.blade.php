@@ -5,15 +5,13 @@
         <div class="page-header-inner tt-wrap">
             <div class="ph-image">
                 <div class="ph-image-inner">
-                    <img src="{{ asset('assets/img/hero-img.jpg') }}" alt="Image" style="border-radius: 10px;">
+                    <img src="{{ $indexHomeData->getFirstMediaUrl() }}" alt="Image" style="border-radius: 10px;">
                 </div>
             </div>
             <div class="ph-caption">
-                <h1 class="ph-caption-title ph-appear max-width-1000">Gart</h1>
+                <h1 class="ph-caption-title ph-appear max-width-1000">{{ $indexHomeData->hero_title }}</h1>
                 <div class="ph-caption-title-ghost ph-appear">History</div>
-                <div class="ph-caption-subtitle ph-appear max-width-650">Welcome to our photography studio.
-                    We specialize in capturing unforgettable moments through our lens. Share your story with
-                    us and let's create lasting memories together.</div>
+                <div class="ph-caption-subtitle ph-appear max-width-650">{{ $indexHomeData->hero_description }}</div>
                 <div class="tt-btn tt-btn-primary ph-appear margin-top-60">
                     <a href="https://api.whatsapp.com/send/?phone=6288808967543&text=Hi there! I'm interested with your works. Could you provide more details on the pricing, and availability? Looking forward to your response. Thank you!&type=phone_number&app_absent=0"
                         target="_blank" rel="noopener" data-hover="Contact Here!">Contact Whatsapp Here!</a>
