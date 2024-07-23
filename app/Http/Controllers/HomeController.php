@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AboutUs;
 use App\Models\IndexHomePage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -24,9 +23,7 @@ class HomeController extends Controller
      */
     public function aboutUs(): View
     {
-        $aboutUsData = AboutUs::first();
-
-        return view('about-us', compact('aboutUsData'));
+        return view('about-us');
     }
 
     /**

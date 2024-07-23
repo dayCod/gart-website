@@ -22,11 +22,9 @@ class IndexHomePageResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationLabel = 'Index Home';
+    protected static ?string $navigationLabel = 'Index Home Page';
 
-    protected static ?string $modelLabel = 'Index Home';
-
-    protected static ?int $navigationSort = 1;
+    protected static ?string $modelLabel = 'Index Home Page';
 
     public static function form(Form $form): Form
     {
