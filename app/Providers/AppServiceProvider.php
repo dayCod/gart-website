@@ -2,9 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\IndexHomePage;
-use App\Policies\IndexHomePagePolicy;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Registering Eloquent Model Policies
-        Gate::policies(IndexHomePage::class, IndexHomePagePolicy::class);
+        //
     }
 }

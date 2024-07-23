@@ -2,29 +2,31 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
+use App\Filament\Resources\IndexHomePageResource\Pages;
+use App\Filament\Resources\IndexHomePageResource\RelationManagers;
 use App\Models\IndexHomePage;
-use Filament\Resources\Resource;
+use Filament\Forms;
 use Filament\Forms\Components\Section;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\IndexHomePageResource\Pages;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use App\Filament\Resources\IndexHomePageResource\RelationManagers;
 
 class IndexHomePageResource extends Resource
 {
     protected static ?string $model = IndexHomePage::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-home';
 
     protected static ?string $navigationLabel = 'Index Home Page';
 
     protected static ?string $modelLabel = 'Index Home Page';
+
+    protected static ?string $navigationGroup = 'Setting';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -35,25 +37,19 @@ class IndexHomePageResource extends Resource
                         ->label('Hero Title')
                         ->required()
                         ->maxLength(255),
+                    Forms\Components\TextInput::make('cta_whatsapp')
+                        ->label('Whatsapp CTA Number')
+                        ->prefix('+62')
+                        ->required()
+                        ->maxLength(255)
+                        ->formatStateUsing(fn ($state): string => "62$state"),
                     Forms\Components\Textarea::make('hero_description')
                         ->label('Hero Description')
                         ->rows(4)
                         ->required()
                         ->columnSpanFull(),
-                    SpatieMediaLibraryFileUpload::make('index_hero_image')
-                        ->image()
-                        ->imageEditor()
-                        ->imageEditorAspectRatios([
-                            '16:9',
-                            '4:3',
-                            '1:1',
-                        ])
-                        ->label('Hero Image')
-                        ->required()
-                        ->openable()
-                        ->downloadable()
-                        ->columnSpanFull()
                 ])
+                ->columns(2)
             ]);
     }
 
@@ -61,14 +57,10 @@ class IndexHomePageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('hero_title'),
-                Tables\Columns\TextColumn::make('hero_description')
-                    ->limit(50)
-                    ->tooltip(function (TextColumn $column): ?string {
-                        return strlen($column->getState()) <= $column->getCharacterLimit()
-                            ? null
-                            : $column->getState();
-                    }),
+                Tables\Columns\TextColumn::make('hero_title')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('cta_whatsapp')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

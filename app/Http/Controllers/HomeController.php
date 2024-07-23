@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\IndexHomePage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -13,9 +12,7 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        $indexHomeData = IndexHomePage::first();
-
-        return view('welcome', compact('indexHomeData'));
+        return view('welcome');
     }
 
     /**

@@ -16,6 +16,7 @@ return new class extends Migration
 
             $table->string('hero_title');
             $table->text('hero_description');
+            $table->string('cta_whatsapp');
 
             $table->timestamps();
         });
