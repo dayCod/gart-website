@@ -27,4 +27,17 @@ class LoginRequest extends FormRequest
             'password' => ['required', 'min:8'],
         ];
     }
+
+    /**
+     * Returns an array containing the email and password from the request.
+     *
+     * @return array
+     */
+    public function dataTransferObject(): array
+    {
+        return [
+            'email' => $this->email,
+            'password' => $this->password,
+        ];
+    }
 }
