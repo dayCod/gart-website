@@ -37,13 +37,13 @@
         <li class="menu-item @if(Route::is('admin.users.*')) active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-group"></i>
-                <div data-i18n="Users">Users</div>
+                <div data-i18n="Users">Gart Studio</div>
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item @if(Route::is(('admin.users.administrator.*'))) active @endif">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Administrator">Administrator</div>
+                <li class="menu-item @if(Route::is('admin.gart.category.*')) active @endif">
+                    <a href="{{ route('admin.gart.category.index') }}" class="menu-link">
+                        <div data-i18n="Category">Category</div>
                     </a>
                 </li>
 

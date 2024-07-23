@@ -46,6 +46,8 @@ class DashboardController extends Controller
             );
 
             $profileDTO['image'] = $imageService->executeSingleImage();
+        } else {
+            $profileDTO['image'] ??= $user->image;
         }
 
         $profileDTO['password'] ??= $user->password;
