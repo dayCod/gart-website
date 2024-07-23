@@ -19,15 +19,15 @@
             <span class="menu-header-text">Dashboard</span>
         </li>
 
-        <li class="menu-item @if(Route::is('example.dashboard')) active @endif">
-            <a href="{{ route('example.dashboard') }}" class="menu-link">
+        <li class="menu-item @if(Route::is('admin.dashboard.index')) active @endif">
+            <a href="{{ route('admin.dashboard.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-grid-alt"></i>
                 <div data-i18n="Dashboard">Dashboard</div>
             </a>
         </li>
 
-        <li class="menu-item @if(Route::is('example.profile')) active @endif">
-            <a href="{{ route('example.profile') }}" class="menu-link">
+        <li class="menu-item @if(Route::is('admin.dashboard.profile.view')) active @endif">
+            <a href="{{ route('admin.dashboard.profile.view') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Profil Saya">Profil Saya</div>
             </a>

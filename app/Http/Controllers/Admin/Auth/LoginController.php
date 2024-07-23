@@ -32,7 +32,7 @@ class LoginController extends Controller
         if (Auth::attempt($request->validated())) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('admin.index'));
+            return redirect()->intended(route('auth.login.view'));
         }
 
         return back()->withErrors([

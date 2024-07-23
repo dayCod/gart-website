@@ -99,7 +99,7 @@
                             <p class="mb-4">Silakan masuk ke akun Anda dan mulai petualangan</p>
                         </div>
 
-                        <form id="formAuthentication" class="mb-3" action="#" method="POST">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('auth.login.action') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
