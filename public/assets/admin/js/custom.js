@@ -120,7 +120,7 @@ $(document).ready(function () {
     $(".see-password").off('click').on('click', function (event) {
         event.preventDefault();
         const target = $(this).data('target');
-        
+
         $(this).parent().toggleClass('show');
         if ($(this).parent().hasClass('show')) {
             $(this).children('i').removeClass('bx-hide');
@@ -141,7 +141,7 @@ $(document).ready(function () {
 
     $(".simple-dataTable").DataTable({
         oLanguage: {
-            sEmptyTable: "Tidak ada data yang tersedia pada tabel ini",
+            sEmptyTable: "There is no data available in this table",
         },
         pageLength: 10,
         scrollX: true,

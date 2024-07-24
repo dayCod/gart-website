@@ -52,7 +52,7 @@ class CategoryController extends Controller
 
         $categoryDTO['image'] = $imageService->executeSingleImage();
 
-        Category::create($categoryDTO + ['type' => request()->segment(2)]);
+        Category::create($categoryDTO + ['type' => self::TYPE_AS_GART]);
 
         return redirect()
             ->route('admin.gart.category.index')

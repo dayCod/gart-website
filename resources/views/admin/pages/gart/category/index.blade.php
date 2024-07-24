@@ -33,7 +33,7 @@
                         <th>Sub Name</th>
                         <th>Slug</th>
 
-                        <th class="text-center">Opsi</th>
+                        <th class="text-center">Option</th>
                     </tr>
                 </thead>
                 <tbody>
