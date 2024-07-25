@@ -33,7 +33,6 @@ class Category extends Model
      */
     protected $guarded = ['id'];
 
-
     /**
      * Appends the 'slug' attribute to the model's attributes.
      * The 'slug' attribute is generated from the 'name' attribute using the Illuminate\Support\Str::slug() function.
@@ -42,7 +41,6 @@ class Category extends Model
      * @var array
      */
     protected $appends = ['slug'];
-
 
     /**
      * Scope a query to only include categories of the 'gart' type.
@@ -54,7 +52,6 @@ class Category extends Model
     {
         return $query->where('type', 'gart');
     }
-
 
     /**
      * Scope a query to only include categories of the 'reise' type.

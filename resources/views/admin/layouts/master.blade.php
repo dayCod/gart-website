@@ -16,22 +16,22 @@
 
     <title>Dashboard {{ config('app.name') }} - @yield('title')</title>
 
-    <meta name="description" content="Jtrip - Mobil, Guide, Tur, dan Segala Keperluan pergi ke Jepang">
+    <meta name="description" content="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
 
     <!-- Google / Search Engine Tags -->
-    <meta itemprop="name" content="Jtrip">
-    <meta itemprop="description" content="Jtrip - Mobil, Guide, Tur, dan Segala Keperluan pergi ke Jepang">
-    
+    <meta itemprop="name" content="Gart Studio">
+    <meta itemprop="description" content="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
+
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Jtrip">
-    <meta property="og:description" content="Jtrip - Mobil, Guide, Tur, dan Segala Keperluan pergi ke Jepang">
-    
+    <meta property="og:title" content="Gart Studio">
+    <meta property="og:description" content="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
+
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jtrip">
-    <meta name="twitter:description" content="Jtrip - Mobil, Guide, Tur, dan Segala Keperluan pergi ke Jepang">
+    <meta name="twitter:title" content="Gart Studio">
+    <meta name="twitter:description" content="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
 
     <!-- Favicon -->
     <link href="{{ asset('assets/landing-page/images/favicon.jpg') }}" rel="shortcut icon" type="image/x-icon">
@@ -41,7 +41,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
+
     {{-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -61,6 +61,7 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/apex-charts/apex-charts.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/iziToast/css/iziToast.min.css') }}">
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 
     {{-- Datatables CSS --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
@@ -68,7 +69,7 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/datatables/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/datatables/checkbox.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/datatables/button.css') }}"> --}}
-    
+
     {{-- Select2 CSS --}}
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/select2/css/select2.min.css') }}">
 
@@ -97,7 +98,7 @@
 
         <!-- Layout container -->
         <div class="layout-page">
-        
+
           <!-- Navbar -->
           @include('admin.components.navbar')
           <!-- / Navbar -->
@@ -145,6 +146,8 @@
     {{-- <script src="{{ asset('assets/admin/vendor/libs/datatables/datatables.js') }}"></script> --}}
     <script src="{{ asset('assets/admin/vendor/libs/chartjs/chartjs.js') }}"></script>
     <script src="{{ asset('assets/admin/vendor/libs/chartjs/charts-chartjs.js') }}"></script>
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
 
     {{-- Select2 JS --}}
     <script src="{{ asset('assets/admin/vendor/libs/select2/js/select2.full.min.js') }}"></script>

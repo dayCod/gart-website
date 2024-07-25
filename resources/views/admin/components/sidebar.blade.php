@@ -47,9 +47,9 @@
                     </a>
                 </li>
 
-                <li class="menu-item @if(Route::is(('admin.users.staff.*'))) active @endif">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Staff">Staff</div>
+                <li class="menu-item @if(Route::is('admin.gart.gallery.*')) active @endif">
+                    <a href="{{ route('admin.gart.gallery.index') }}" class="menu-link">
+                        <div data-i18n="Gallery">Gallery</div>
                     </a>
                 </li>
             </ul>

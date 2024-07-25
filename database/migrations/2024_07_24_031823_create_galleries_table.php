@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
+
             $table->string('title');
             $table->string('sub_title');
             $table->string('client_name');

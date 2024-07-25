@@ -20,7 +20,7 @@ class CategoryController extends Controller
      */
     public function index(): View
     {
-        $categories = Category::gart()->get();
+        $categories = Category::gart()->latest()->get();
 
         return view('admin.pages.gart.category.index', compact('categories'));
     }
@@ -82,7 +82,7 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, int $id): RedirectResponse
     {
         $categoryDTO = $request->dataTransferObject();
-        $category = Category::find($id);
+        $category = Category::gart()->findOrFail($id);
 
         if (!is_null($categoryDTO['image'])) {
             $imageService = new ImageService(
@@ -111,7 +111,7 @@ class CategoryController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        $category = Category::find($id);
+        $category = Category::gart()->findOrFail($id);
         $category->delete();
 
         return redirect()

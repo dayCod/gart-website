@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Client')
+@section('title', __('pages.table.index', ['prop' => 'Category']))
 
 @section('content')
 {{-- Breadcrumb --}}
