@@ -23,6 +23,7 @@ return [
         'edit' => 'Edit :prop Form',
         'show' => 'Show :prop Form',
         'placeholder' => 'Enter :prop',
+        'default' => 'Form :prop Data'
     ],
     'table' => [
         'index' => 'List of :prop Data',
