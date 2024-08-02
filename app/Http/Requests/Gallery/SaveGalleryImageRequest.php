@@ -22,8 +22,46 @@ class SaveGalleryImageRequest extends FormRequest
      */
     public function rules(): array
     {
+        $rules = [
+            'gallery_id' => ['required', 'exists:galleries,id'],
+        ];
+
+        if (request()->has('galleries')) {
+
+            foreach (array_keys(request()->galleries) as $key => $value) {
+                $rules['galleries.'.$value] = ($value == 0)
+                    ? ['required', 'image']
+                    : ['nullable', 'image'];
+            }
+        }
+
+        return $rules;
+    }
+
+    /**
+     * Prepares the request data for validation by merging the 'gallery_id' and 'galleries' fields.
+     * This method is called automatically by Laravel before the validation rules are applied.
+     *
+     * @return void
+     */
+    public function prepareForValidation(): void
+    {
+        $this->merge([
+            'gallery_id' => $this->id,
+        ]);
+    }
+
+    /**
+     * Returns an array of data that can be used to create or update a gallery.
+     *
+     * @return array
+     */
+    public function dataTransferObject(): array
+    {
         return [
-            //
+            'galleries' => $this->galleries,
+            'gallery_id' => $this->gallery_id,
+            'detail_gallery_id' => $this->detail_gallery_id,
         ];
     }
 }

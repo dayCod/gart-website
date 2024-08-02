@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
             Route::group(['prefix' => '/{id}/image', 'as' => 'image.'], function () {
                 Route::get('/form', [GalleryImageController::class, 'form'])->name('form');
                 Route::post('/form', [GalleryImageController::class, 'formSave'])->name('form.save');
+                Route::delete('/{pictureId}/destroy', [GalleryImageController::class, 'destroy'])->name('destroy');
             });
         });
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfe12996eeecb6fdc8713a9fd9d431f8",
+    "content-hash": "e81e22b1bb87bd99f93c2a49e65abeb6",
     "packages": [
         {
             "name": "brick/math",
@@ -3173,6 +3173,43 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "rembon/sync-collection",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Rembonnn/sync-collection.git",
+                "reference": "b14e60a82f5a0ca9376390d33e442ffcbffdc445"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rembonnn/sync-collection/zipball/b14e60a82f5a0ca9376390d33e442ffcbffdc445",
+                "reference": "b14e60a82f5a0ca9376390d33e442ffcbffdc445",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rembon\\SyncCollection\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "dayCod",
+                    "email": "alayarahman07@gmail.com"
+                }
+            ],
+            "description": "Sync Between Old and New Laravel Data Collection",
+            "support": {
+                "issues": "https://github.com/Rembonnn/sync-collection/issues",
+                "source": "https://github.com/Rembonnn/sync-collection/tree/v1.0.1"
+            },
+            "time": "2023-10-30T23:25:24+00:00"
         },
         {
             "name": "symfony/console",

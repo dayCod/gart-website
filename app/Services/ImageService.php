@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\Exception\UploadException;
 
 class ImageService
 {
@@ -48,13 +50,58 @@ class ImageService
     /**
      * Stores a single uploaded image file and returns the public URL of the stored file.
      *
+     * This method takes an optional `$images` parameter, which can be used to provide a specific image file to be stored.
+     * If `$images` is not provided, the method will use the `$imageRequest` property of the class.
+     *
+     * If the `$generateRandStr` parameter is set to `true`, the method will generate a random 5-character string and append it to the filename.
+     *
+     * The method will store the image file in the `$storeToFolder` directory, using the `$imageName` property as the base filename, and the file extension of the uploaded image.
+     *
+     * @param \Illuminate\Http\UploadedFile|null $images The uploaded image file to be stored.
+     * @param bool $generateRandStr Whether to generate a random string and append it to the filename.
      * @return string The public URL of the stored image file.
      */
-    public function executeSingleImage(): string
+    public function executeSingleImage($images = null, $generateRandStr = false): string
     {
-        $extension = $this->imageRequest->extension();
-        $path = Storage::putFileAs("public/{$this->storeToFolder}", $this->imageRequest, $this->imageName.'.'.$extension);
+        $image = is_null($images) ? $this->imageRequest : $images;
 
-        return $this->imageName.'.'.$extension;
+        $extension = $image->extension();
+
+        $randStr = Str::random(5);
+
+        $filename = $generateRandStr
+            ? "{$this->imageName}-{$randStr}.{$extension}"
+            : $this->imageName.'.'.$extension;
+
+        Storage::putFileAs("public/{$this->storeToFolder}", $image, $filename);
+
+        return $filename;
+    }
+
+    /**
+     * Stores multiple uploaded image files and returns an array of the public URLs of the stored files.
+     *
+     * If the provided `$imageRequest` is an array, this method will loop through each image in the array,
+     * store it using the `executeSingleImage()` method, and return an array of the public URLs of the stored files.
+     *
+     * If the provided `$imageRequest` is not an array, this method will return an `UploadException` with
+     * the message "The provided image request is not an array."
+     *
+     * @return array|UploadException An array or an `UploadException` if the `$imageRequest` is not an array.
+     */
+    public function executeMultipleImages(): array|UploadException
+    {
+        if (is_array($this->imageRequest)) {
+
+            $imagePath = array();
+
+            foreach ($this->imageRequest as $image) {
+                $imagePath[] = $this->executeSingleImage(images: $image, generateRandStr: true);
+            }
+
+            return $imagePath;
+        }
+
+        return new UploadException('The provided image request is not an array.');
     }
 }

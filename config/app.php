@@ -185,6 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Rembon\SyncCollection\SyncCollectionServiceProvider::class,
 
         /*
          * Application Service Providers...

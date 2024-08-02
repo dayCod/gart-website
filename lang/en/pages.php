@@ -31,6 +31,7 @@ return [
             'create' => 'Create :prop Data',
             'edit' => 'Edit :prop Data',
             'delete' => 'Delete :prop Data',
+            'gallery' => 'Gallery Images',
         ]
     ],
 ];

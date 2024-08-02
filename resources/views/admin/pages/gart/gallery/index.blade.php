@@ -47,7 +47,7 @@
                             <td>{{ $gallery->production_year }}</td>
                             <td>
                                 <div class="d-flex flex-wrap align-items-center justify-content-center gap-2">
-                                    <a href="{{ route('admin.gart.gallery.image.form', $gallery->id) }}" class="btn btn-success btn-icon btn-sm" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" data-bs-original-title="{{ __('pages.table.tooltip.edit', ['prop' => 'Gallery Image']) }}">
+                                    <a href="{{ route('admin.gart.gallery.image.form', $gallery->id) }}" class="btn btn-success btn-icon btn-sm" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" data-bs-original-title="{{ __('pages.table.tooltip.gallery') }}">
                                         <i class="bx bx-images"></i>
                                     </a>
                                     <a href="{{ route('admin.gart.gallery.edit', $gallery->id) }}" class="btn btn-info btn-icon btn-sm" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" data-bs-original-title="{{ __('pages.table.tooltip.edit', ['prop' => 'Gallery']) }}">
