@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Gart;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Gallery;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -13,7 +15,13 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        return view('gart.index');
+        $galleries = Gallery::gart()
+            ->with('category')
+            ->latest()
+            ->limit(4)
+            ->get();
+
+        return view('gart.index', compact('galleries'));
     }
 
     /**
@@ -21,7 +29,9 @@ class HomeController extends Controller
      */
     public function categories(): View
     {
-        return view('gart.category.index');
+        $categories = Category::gart()->latest()->get();
+
+        return view('gart.category.index', compact('categories'));
     }
 
     /**
@@ -29,7 +39,13 @@ class HomeController extends Controller
      */
     public function category(string $slug): View
     {
-        return view('gart.category.detail');
+        $category = Category::gart()
+            ->with('galleries')
+            ->latest()
+            ->get()
+            ->first(fn ($category) => $category->slug === $slug);
+
+        return view('gart.category.detail', compact('category'));
     }
 
     /**
@@ -37,7 +53,12 @@ class HomeController extends Controller
      */
     public function galleries(): View
     {
-        return view('gart.gallery.index');
+        $galleries = Gallery::gart()
+            ->with('category')
+            ->latest()
+            ->paginate(6);
+
+        return view('gart.gallery.index', compact('galleries'));
     }
 
     /**
@@ -45,6 +66,14 @@ class HomeController extends Controller
      */
     public function gallery(string $slug): View
     {
-        return view('gart.gallery.detail');
+        $gallery = Gallery::gart()
+            ->with('category', 'detailGalleries')
+            ->latest()
+            ->get()
+            ->first(fn ($gallery) => $gallery->slug === $slug);
+
+        $nextGallery = Gallery::gart()->where('id', $gallery->id + 1)->first();
+
+        return view('gart.gallery.detail', compact('gallery', 'nextGallery'));
     }
 }

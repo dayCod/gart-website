@@ -9,7 +9,7 @@
         ============================= -->
         <div class="ph-image">
             <div class="ph-image-inner">
-                <img src="{{ asset('gart/gm-kimmy-0.jpg') }}" alt="Image">
+                <img src="{{ $gallery->getImageURL() }}" alt="Image">
             </div>
         </div>
         <!-- End page header image -->
@@ -20,12 +20,12 @@
         -->
         <div class="ph-caption">
             <div class="ph-categories ph-appear">
-                <div class="ph-category" style="">Photo Product</div>
+                <div class="ph-category" style="">{{ $gallery->category->name }}</div>
                 <!-- <div class="ph-category">Varia</div> -->
             </div> <!-- /.ph-categories -->
 
-            <h2 class="ph-caption-title ph-appear">Kimmy</h2> <!-- You can use <br class="hide-from-lg"> to break a text line if needed -->
-            <h4 class="ph-caption-subtitle ph-appear">Beautifull Shoes</h4>
+            <h2 class="ph-caption-title ph-appear">{{ $gallery->title }}</h2> <!-- You can use <br class="hide-from-lg"> to break a text line if needed -->
+            <h4 class="ph-caption-subtitle ph-appear">{{ $gallery->sub_title }}</h4>
         </div>
         <!-- End page header caption -->
 
@@ -38,15 +38,15 @@
             <ul>
                 <li>
                     <div class="pi-list-heading">Client</div>
-                    <div class="pi-list-cont">Glarissamoda</div>
+                    <div class="pi-list-cont">{{ $gallery->client_name }}</div>
                 </li>
                 <li>
                     <div class="pi-list-heading">Year</div>
-                    <div class="pi-list-cont">2022</div>
+                    <div class="pi-list-cont">{{ $gallery->production_year }}</div>
                 </li>
                 <li>
-                    <div class="pi-list-heading">Scope</div>
-                    <div class="pi-list-cont">Photo Shoot, Editting</div> <!-- Describe in a few words -->
+                    <div class="pi-list-heading">Tags</div>
+                    <div class="pi-list-cont">{{ str_replace(',', ', ', implode(',', $gallery->tags)) }}</div> <!-- Describe in a few words -->
                 </li>
             </ul>
         </div>
@@ -143,7 +143,7 @@
                 <div class="tt-col-lg-8">
 
                     <div class="anim-fadeinup text-gray">
-                        <p>In friendship diminution instrument so. Son sure paid door with say them. Two among sir sorry men court. Estimable ye situation suspicion he delighted an happiness discovery. Fact are size cold why had part. If believing or sweetness otherwise in we forfeited. Tolerably an unwilling arranging of determine. Beyond rather sooner.</p>
+                        <p>{{ $gallery->description }}</p>
                     </div>
 
                 </div> <!-- /.tt-col -->
@@ -184,157 +184,66 @@
                     ============================== -->
                     <div class="tt-grid-items-wrap isotope-items-wrap lightgallery">
 
-                        <div class="tt-grid-item isotope-item">
-                            <div class="ttgr-item-inner">
+                        @foreach ($gallery->detailGalleries as $index => $picture)
+                            @if ($index % 3 === 1)
+                                <div class="tt-grid-item isotope-item">
+                                    <div class="ttgr-item-inner">
 
-                                <!-- Begin tt-Gallery item
-                                =========================== -->
-                                <a href="{{ asset('gart/gm-kimmy-0.jpg') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                    <div class="tt-gallery-item-inner">
-                                        <div class="tt-gallery-image-wrap anim-zoomin">
-                                            <figure class="tt-gallery-image ttgr-height">
-                                                <img src="{{ asset('gart/gm-kimmy-0.jpg') }}" alt="image">
-                                            </figure> <!-- /.tt-gallery-image -->
-                                        </div> <!-- /.tt-gallery-image-wrap -->
-                                    </div> <!-- /.tt-gallery-item-inner -->
-                                </a>
-                                <!-- End tt-Gallery item -->
+                                        <!-- Begin tt-Gallery item
+                                        =========================== -->
+                                        <a href="{{ $picture->getImageURL() }}" class="tt-gallery-item lg-trigger" data-cursor="View">
+                                            <div class="tt-gallery-item-inner">
+                                                <div class="tt-gallery-image-wrap anim-zoomin">
+                                                    <figure class="tt-gallery-image ttgr-height">
+                                                        <img src="{{ $picture->getImageURL() }}" alt="image">
+                                                    </figure> <!-- /.tt-gallery-image -->
+                                                </div> <!-- /.tt-gallery-image-wrap -->
+                                            </div> <!-- /.tt-gallery-item-inner -->
+                                        </a>
+                                        <!-- End tt-Gallery item -->
 
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
+                                    </div> <!-- /.ttgr-item-inner -->
+                                </div>
+                            @elseif ($index % 3 === 2)
+                                <div class="tt-grid-item isotope-item">
+                                    <div class="ttgr-item-inner">
 
-                        <div class="tt-grid-item isotope-item">
-                            <div class="ttgr-item-inner">
+                                        <!-- Begin tt-Gallery item
+                                        =========================== -->
+                                        <a href="{{ $picture->getImageURL() }}" class="tt-gallery-item lg-trigger" data-cursor="View">
+                                            <div class="tt-gallery-item-inner">
+                                                <div class="tt-gallery-image-wrap anim-zoomin">
+                                                    <figure class="tt-gallery-image ttgr-height">
+                                                        <img src="{{ $picture->getImageURL() }}" alt="image">
+                                                    </figure> <!-- /.tt-gallery-image -->
+                                                </div> <!-- /.tt-gallery-image-wrap -->
+                                            </div> <!-- /.tt-gallery-item-inner -->
+                                        </a>
+                                        <!-- End tt-Gallery item -->
 
-                                <!-- Begin tt-Gallery item
-                                =========================== -->
-                                <a href="{{ asset('gart/gm-kimmy-0.jpg') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                    <div class="tt-gallery-item-inner">
-                                        <div class="tt-gallery-image-wrap anim-zoomin">
-                                            <figure class="tt-gallery-image ttgr-height">
-                                                <img src="{{ asset('gart/gm-kimmy-1.jpg') }}" alt="image">
-                                            </figure> <!-- /.tt-gallery-image -->
-                                        </div> <!-- /.tt-gallery-image-wrap -->
-                                    </div> <!-- /.tt-gallery-item-inner -->
-                                </a>
-                                <!-- End tt-Gallery item -->
+                                    </div> <!-- /.ttgr-item-inner -->
+                                </div>
+                            @else
+                                <div class="tt-grid-item isotope-item">
+                                    <div class="ttgr-item-inner">
 
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
+                                        <!-- Begin tt-Gallery item
+                                        =========================== -->
+                                        <a href="{{ $picture->getImageURL() }}" class="tt-gallery-item lg-trigger" data-cursor="View">
+                                            <div class="tt-gallery-item-inner">
+                                                <div class="tt-gallery-image-wrap anim-zoomin">
+                                                    <figure class="tt-gallery-image ttgr-height">
+                                                        <img src="{{ $picture->getImageURL() }}" alt="image">
+                                                    </figure> <!-- /.tt-gallery-image -->
+                                                </div> <!-- /.tt-gallery-image-wrap -->
+                                            </div> <!-- /.tt-gallery-item-inner -->
+                                        </a>
+                                        <!-- End tt-Gallery item -->
 
-                        <div class="tt-grid-item isotope-item">
-                            <div class="ttgr-item-inner">
-
-                                <!-- Begin tt-Gallery item
-                                =========================== -->
-                                <a href="{{ asset('gart/gm-kimmy-0.jpg') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                    <div class="tt-gallery-item-inner">
-                                        <div class="tt-gallery-image-wrap anim-zoomin">
-                                            <figure class="tt-gallery-image ttgr-height">
-                                                <img src="{{ asset('gart/gm-kimmy-2.jpg') }}" alt="image">
-                                            </figure> <!-- /.tt-gallery-image -->
-                                        </div> <!-- /.tt-gallery-image-wrap -->
-                                    </div> <!-- /.tt-gallery-item-inner -->
-                                </a>
-                                <!-- End tt-Gallery item -->
-
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
-
-                        <div class="tt-grid-item isotope-item">
-                            <div class="ttgr-item-inner">
-
-                                <!-- Begin tt-Gallery item
-                                =========================== -->
-                                <a href="{{ asset('gart/gm-kimmy-3.jpg') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                    <div class="tt-gallery-item-inner">
-                                        <div class="tt-gallery-image-wrap anim-zoomin">
-                                            <figure class="tt-gallery-image ttgr-height">
-                                                <img src="{{ asset('gart/gm-kimmy-3.jpg') }}" alt="image">
-                                            </figure> <!-- /.tt-gallery-image -->
-                                        </div> <!-- /.tt-gallery-image-wrap -->
-                                    </div> <!-- /.tt-gallery-item-inner -->
-                                </a>
-                                <!-- End tt-Gallery item -->
-
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
-
-                        <div class="tt-grid-item isotope-item">
-                            <div class="ttgr-item-inner">
-
-                                <!-- Begin tt-Gallery item
-                                =========================== -->
-                                <a href="{{ asset('gart/gm-kimmy-4.jpg') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                    <div class="tt-gallery-item-inner">
-                                        <div class="tt-gallery-image-wrap anim-zoomin">
-                                            <figure class="tt-gallery-image ttgr-height">
-                                                <img src="{{ asset('gart/gm-kimmy-4.jpg') }}" alt="image">
-                                            </figure> <!-- /.tt-gallery-image -->
-                                        </div> <!-- /.tt-gallery-image-wrap -->
-                                    </div> <!-- /.tt-gallery-item-inner -->
-                                </a>
-                                <!-- End tt-Gallery item -->
-
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
-
-                        <div class="tt-grid-item isotope-item">
-                            <div class="ttgr-item-inner">
-
-                                <!-- Begin tt-Gallery item
-                                =========================== -->
-                                <a href="{{ asset('gart/gm-kimmy-5.jpg') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                    <div class="tt-gallery-item-inner">
-                                        <div class="tt-gallery-image-wrap anim-zoomin">
-                                            <figure class="tt-gallery-image ttgr-height">
-                                                <img src="{{ asset('gart/gm-kimmy-5.jpg') }}" alt="image">
-                                            </figure> <!-- /.tt-gallery-image -->
-                                        </div> <!-- /.tt-gallery-image-wrap -->
-                                    </div> <!-- /.tt-gallery-item-inner -->
-                                </a>
-                                <!-- End tt-Gallery item -->
-
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
-
-                        <div class="tt-grid-item isotope-item">
-                            <div class="ttgr-item-inner">
-
-                                <!-- Begin tt-Gallery item
-                                =========================== -->
-                                <a href="{{ asset('gart/gm-kimmy-6.jpg') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                    <div class="tt-gallery-item-inner">
-                                        <div class="tt-gallery-image-wrap anim-zoomin">
-                                            <figure class="tt-gallery-image ttgr-height">
-                                                <img src="{{ asset('gart/gm-kimmy-6.jpg') }}" alt="image">
-                                            </figure> <!-- /.tt-gallery-image -->
-                                        </div> <!-- /.tt-gallery-image-wrap -->
-                                    </div> <!-- /.tt-gallery-item-inner -->
-                                </a>
-                                <!-- End tt-Gallery item -->
-
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
-
-                        <div class="tt-grid-item isotope-item">
-                            <div class="ttgr-item-inner">
-
-                                <!-- Begin tt-Gallery item
-                                =========================== -->
-                                <a href="{{ asset('gart/gm-kimmy-7.jpg') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
-                                    <div class="tt-gallery-item-inner">
-                                        <div class="tt-gallery-image-wrap anim-zoomin">
-                                            <figure class="tt-gallery-image ttgr-height">
-                                                <img src="{{ asset('gart/gm-kimmy-7.jpg') }}" alt="image">
-                                            </figure> <!-- /.tt-gallery-image -->
-                                        </div> <!-- /.tt-gallery-image-wrap -->
-                                    </div> <!-- /.tt-gallery-item-inner -->
-                                </a>
-                                <!-- End tt-Gallery item -->
-
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
+                                    </div> <!-- /.ttgr-item-inner -->
+                                </div>
+                            @endif
+                        @endforeach
 
                     </div>
                     <!-- End tt-Grid items wrap  -->
@@ -364,11 +273,17 @@
             * Use class "tt-pn-scroll" to enable hover title scroll. Note: If "tt-pn-hover-title" text is wider than "tt-pn-link" then it scrolls by default. The longer the text, the faster it scrolls.
             -->
             <div class="tt-page-nav tt-pn-scroll">
-                <a href="single-project-3.html" class="tt-pn-link anim-fadeinup">
-                    <div class="tt-pn-title">Next Project</div>
-                    <div class="tt-pn-hover-title">Fashion Week</div>
-                </a> <!-- /.tt-pn-link -->
-
+                @if (!is_null($nextGallery))
+                    <a href="{{ route('gart.gallery', $nextGallery->slug) }}" class="tt-pn-link anim-fadeinup">
+                        <div class="tt-pn-title">Next Gallery</div>
+                        <div class="tt-pn-hover-title">Next Gallery</div>
+                    </a> <!-- /.tt-pn-link -->
+                @else
+                    <a href="{{ route('gart.galleries') }}" class="tt-pn-link anim-fadeinup">
+                        <div class="tt-pn-title">Explore</div>
+                        <div class="tt-pn-hover-title">Discover Best Moments</div>
+                    </a> <!-- /.tt-pn-link -->
+                @endif
                 <div class="tt-pn-subtitle anim-fadeinup">Explore More</div>
 
                 <!-- Use if destination page contains page header image -->

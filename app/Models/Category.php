@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
@@ -82,5 +83,15 @@ class Category extends Model
     public function getImageURL()
     {
         return asset('storage/' . self::FOLDER_NAME . '/' . $this->image);
+    }
+
+    /**
+     * Get the galleries associated with the category.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function galleries(): HasMany
+    {
+        return $this->hasMany(Gallery::class, 'category_id', 'id');
     }
 }

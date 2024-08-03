@@ -16,40 +16,42 @@
 
                     <!-- Begin swiper slide
                     ======================== -->
-                    <div class="swiper-slide">
+                    @foreach ($categories as $category)
+                        <div class="swiper-slide">
 
-                        <a href="{{ route('gart.category', ['slug' => 'test']) }}" class="tt-portfolio-carousel-item" data-cursor="View<br>Category">
+                            <a href="{{ route('gart.category', ['slug' => $category->slug]) }}" class="tt-portfolio-carousel-item" data-cursor="View<br>Category">
 
-                            <!-- Use class "cover-opacity-*" to set an image overlay if needed. For example "cover-opacity-2". More info in the file "helper.css". -->
-                            <figure class="tt-pci-image-wrap cover-opacity-2">
-                                <img class="tt-pci-image swiper-lazy" src="{{ asset('gart/gm-flora-0.jpg') }}" data-src="{{ asset('gart/gm-flora-0.jpg') }}" alt="Image">
-                            </figure> <!-- /.tt-pci-image-wrap -->
+                                <!-- Use class "cover-opacity-*" to set an image overlay if needed. For example "cover-opacity-2". More info in the file "helper.css". -->
+                                <figure class="tt-pci-image-wrap cover-opacity-2">
+                                    <img class="tt-pci-image swiper-lazy" src="{{ $category->getImageURL() }}" data-src="{{ $category->getImageURL() }}" alt="Image">
+                                </figure> <!-- /.tt-pci-image-wrap -->
 
-                            <div class="tt-pci-caption-front">
-                                <div class="tt-pci-caption">
+                                <div class="tt-pci-caption-front">
+                                    <div class="tt-pci-caption">
+                                        <div class="tt-pci-caption-inner">
+                                            <h2 class="tt-pci-title">{{ $category->name }}</h2> <!-- You can use <br class="hide-from-sm"> to break a text line if needed -->
+                                            <div class="tt-pci-categories">
+                                                {{-- <div class="tt-pci-category">People</div> --}}
+                                                <!-- <div class="tt-pci-category">Varia</div> -->
+                                            </div> <!-- /.tt-pci-categories -->
+                                        </div> <!-- /.tt-pci-caption-inner -->
+                                    </div> <!-- /.tt-pci-caption -->
+                                </div> <!-- /.tt-pci-caption-front -->
+
+                                <div class="tt-pci-caption tt-pci-caption-back">
                                     <div class="tt-pci-caption-inner">
-                                        <h2 class="tt-pci-title">Photo<br class="hide-from-sm"> Product</h2> <!-- You can use <br class="hide-from-sm"> to break a text line if needed -->
+                                        <h2 class="tt-pci-title">{{ $category->name }}</h2> <!-- You can use <br class="hide-from-sm"> to break a text line if needed -->
                                         <div class="tt-pci-categories">
                                             {{-- <div class="tt-pci-category">People</div> --}}
                                             <!-- <div class="tt-pci-category">Varia</div> -->
                                         </div> <!-- /.tt-pci-categories -->
                                     </div> <!-- /.tt-pci-caption-inner -->
                                 </div> <!-- /.tt-pci-caption -->
-                            </div> <!-- /.tt-pci-caption-front -->
+                            </a>
+                            <!-- End portfolio carousel item -->
 
-                            <div class="tt-pci-caption tt-pci-caption-back">
-                                <div class="tt-pci-caption-inner">
-                                    <h2 class="tt-pci-title">Photo<br class="hide-from-sm"> Product</h2> <!-- You can use <br class="hide-from-sm"> to break a text line if needed -->
-                                    <div class="tt-pci-categories">
-                                        {{-- <div class="tt-pci-category">People</div> --}}
-                                        <!-- <div class="tt-pci-category">Varia</div> -->
-                                    </div> <!-- /.tt-pci-categories -->
-                                </div> <!-- /.tt-pci-caption-inner -->
-                            </div> <!-- /.tt-pci-caption -->
-                        </a>
-                        <!-- End portfolio carousel item -->
-
-                    </div>
+                        </div>
+                    @endforeach
                     <!-- End swiper slide -->
 
                 </div>

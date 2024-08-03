@@ -71,7 +71,7 @@
 												</li>
 												<!-- End submenu (sub-master) -->
 
-												<li><a href="contact.html">Contact</a></li>
+												<li><a href="{{ route('contact-us') }}">Contact</a></li>
 
 											</ul>
 											<!-- End menu list -->

@@ -9,7 +9,7 @@
         ============================= -->
         <div class="ph-image">
             <div class="ph-image-inner">
-                <img src="{{ asset('gart/gm-flora-0.jpg') }}" alt="Image">
+                <img src="{{ $category->getImageURL() }}" alt="Image">
             </div>
         </div>
         <!-- End page header image -->
@@ -19,9 +19,9 @@
         Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
         -->
         <div class="ph-caption">
-            <h1 class="ph-caption-title ph-appear">Photo Product</h1>
-            <div class="ph-caption-title-ghost ph-appear">Photo Product</div>
-            <div class="ph-caption-subtitle ph-appear">Our Projects</div>
+            <h1 class="ph-caption-title ph-appear">{{ $category->name }}</h1>
+            <div class="ph-caption-title-ghost ph-appear">{{ $category->name }}</div>
+            <div class="ph-caption-subtitle ph-appear">{{ $category->sub_name }}</div>
         </div>
         <!-- End page header caption -->
 
@@ -86,7 +86,7 @@
                             <!-- End tt-Heading -->
 
                             <div class="anim-fadeinup text-gray">
-                                <p>Pleased him another was settled for. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire. Stanhill on we if vicinity material in. Saw him smallest you provided ecstatic supplied. Garret wanted expect remain as mr. Covered parlors concern we express in visited to do.</p>
+                                <p>{{ $category->description }}</p>
 
                                 <!-- <div class="tt-btn tt-btn-link no-margin">
                                     <a href="dummy-page.html" data-hover="Explore More">Explore More</a>
@@ -118,52 +118,7 @@
 
                     <!-- Begin tt-Ggrid top content
                     ================================ -->
-                    <div class="tt-grid-top">
-
-                        <!-- Begin tt-Ggrid categories/filter
-                        ====================================== -->
-                        <div class="tt-grid-categories">
-
-                            <!-- Begin tt-Ggrid categories trigger
-                            =======================================
-                            * Use class "ttgr-cat-fixed" to enable categories trigger fixed position.
-                            -->
-                            <div class="ttgr-cat-trigger-wrap ttgr-cat-fixed">
-                                <a href="#portfolio-grid" class="ttgr-cat-trigger not-hide-cursor" data-offset="150">
-                                    <div class="ttgr-cat-text">
-                                        <span data-hover="Open">Filter</span>
-                                    </div>
-                                    <div class="ttgr-cat-icon">
-                                        <span class="magnetic-item"><i class="fas fa-layer-group"></i></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- End tt-Ggrid categories trigger -->
-
-                            <!-- Begin tt-Ggrid categories nav
-                            =================================== -->
-                            <div class="ttgr-cat-nav">
-                                <div class="ttgr-cat-list-holder cursor-close">
-                                    <div class="ttgr-cat-list-inner">
-                                        <div class="ttgr-cat-list-content">
-                                            <ul class="ttgr-cat-list">
-                                                <li class="ttgr-cat-close">Close <i class="fas fa-times"></i></li> <!-- For mobile devices! -->
-                                                <li class="ttgr-cat-item"><a href="#" class="active">Show All</a></li>
-                                                <li class="ttgr-cat-item"><a href="#" data-filter=".branding">Branding</a></li>
-                                                <li class="ttgr-cat-item"><a href="#" data-filter=".people">People</a></li>
-                                                <li class="ttgr-cat-item"><a href="#" data-filter=".nature">Nature</a></li>
-                                                <li class="ttgr-cat-item"><a href="#" data-filter=".creative">Creative</a></li>
-                                            </ul>
-                                        </div> <!-- /.ttgr-cat-links-content -->
-                                    </div> <!-- /.ttgr-cat-links-inner -->
-                                </div> <!-- /.ttgr-cat-links-holder -->
-                            </div>
-                            <!-- End tt-Ggrid categories nav -->
-
-                        </div>
-                        <!-- End tt-Ggrid categories/filter-->
-
-                    </div>
+                    <div class="tt-grid-top"></div>
                     <!-- End tt-Grid top content -->
 
 
@@ -173,80 +128,45 @@
 
                         <!-- Begin tt-Grid item
                         ======================== -->
-                        <div class="tt-grid-item isotope-item people">
-                            <div class="ttgr-item-inner">
+                        @foreach ($category->galleries as $gallery)
+                            <div class="tt-grid-item isotope-item people">
+                                <div class="ttgr-item-inner">
 
-                                <!-- Begin portfolio grid item
-                                ===============================
-                                * Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"! Also no effect on small screens!).
-                                -->
-                                <div class="portfolio-grid-item">
-                                    <a href="{{ route('gart.gallery', 'kimmy-x4c') }}" class="pgi-image-wrap" data-cursor="View<br>Project">
-                                        <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
-                                        <div class="pgi-image-holder">
-                                            <div class="pgi-image-inner anim-zoomin">
-                                                <figure class="pgi-image ttgr-height">
-                                                    <img src="{{ asset('gart/gm-kimmy-0.jpg') }}" alt="image">
-                                                </figure> <!-- /.pgi-image -->
-                                            </div> <!-- /.pgi-image-inner -->
-                                        </div> <!-- /.pgi-image-holder -->
-                                    </a> <!-- /.pgi-image-wrap -->
+                                    <!-- Begin portfolio grid item
+                                    ===============================
+                                    * Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"! Also no effect on small screens!).
+                                    -->
+                                    <div class="portfolio-grid-item">
+                                        <a href="{{ route('gart.gallery', $gallery->slug) }}" class="pgi-image-wrap" data-cursor="View<br>Gallery">
+                                            <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
+                                            <div class="pgi-image-holder">
+                                                <div class="pgi-image-inner anim-zoomin">
+                                                    <figure class="pgi-image ttgr-height">
+                                                        <img src="{{ $gallery->getImageURL() }}" alt="image">
+                                                    </figure> <!-- /.pgi-image -->
+                                                </div> <!-- /.pgi-image-inner -->
+                                            </div> <!-- /.pgi-image-holder -->
+                                        </a> <!-- /.pgi-image-wrap -->
 
-                                    <div class="pgi-caption">
-                                        <div class="pgi-caption-inner">
-                                            <h2 class="pgi-title">
-                                                <a href="{{ route('gart.gallery', 'kimmy-x4c') }}">Kimmy</a>
-                                            </h2>
-                                            <div class="pgi-categories-wrap">
-                                                <div class="pgi-category">Photo Product</div>
-                                                <!-- <div class="pgi-category">Varia</div> -->
-                                            </div> <!-- /.pli-categories-wrap -->
-                                        </div> <!-- /.pgi-caption-inner -->
-                                    </div> <!-- /.pgi-caption -->
-                                </div>
-                                <!-- End portfolio grid item -->
+                                        <div class="pgi-caption">
+                                            <div class="pgi-caption-inner">
+                                                <h2 class="pgi-title">
+                                                    <a href="{{ route('gart.gallery', $gallery->slug) }}">
+                                                        {{ $gallery->title }}
+                                                    </a>
+                                                </h2>
+                                                <div class="pgi-categories-wrap">
+                                                    <div class="pgi-category">{{ $gallery->category->name }}</div>
+                                                    <!-- <div class="pgi-category">Varia</div> -->
+                                                </div> <!-- /.pli-categories-wrap -->
+                                            </div> <!-- /.pgi-caption-inner -->
+                                        </div> <!-- /.pgi-caption -->
+                                    </div>
+                                    <!-- End portfolio grid item -->
 
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
-                        <!-- End tt-Grid item -->
-
-                        <!-- Begin tt-Grid item
-                        ======================== -->
-                        <div class="tt-grid-item isotope-item creative">
-                            <div class="ttgr-item-inner">
-
-                                <!-- Begin portfolio grid item
-                                ===============================
-                                * Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"!).
-                                -->
-                                <div class="portfolio-grid-item">
-                                    <a href="{{ route('gart.gallery', 'flora-deq') }}" class="pgi-image-wrap" data-cursor="View<br>Project">
-                                        <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
-                                        <div class="pgi-image-holder">
-                                            <div class="pgi-image-inner anim-zoomin">
-                                                <figure class="pgi-image ttgr-height">
-                                                    <img src="{{ asset('gart/gm-flora-0.jpg') }}" alt="image">
-                                                </figure> <!-- /.pgi-image -->
-                                            </div> <!-- /.pgi-image-inner -->
-                                        </div> <!-- /.pgi-image-holder -->
-                                    </a> <!-- /.pgi-image-wrap -->
-
-                                    <div class="pgi-caption">
-                                        <div class="pgi-caption-inner">
-                                            <h2 class="pgi-title">
-                                                <a href="{{ route('gart.gallery', 'flora-deq') }}">Flora</a>
-                                            </h2>
-                                            <div class="pgi-categories-wrap">
-                                                <div class="pgi-category">Photo Product</div>
-                                                <!-- <div class="pgi-category">Varia</div> -->
-                                            </div> <!-- /.pli-categories-wrap -->
-                                        </div> <!-- /.pgi-caption-inner -->
-                                    </div> <!-- /.pgi-caption -->
-                                </div>
-                                <!-- End portfolio grid item -->
-
-                            </div> <!-- /.ttgr-item-inner -->
-                        </div>
+                                </div> <!-- /.ttgr-item-inner -->
+                            </div>
+                        @endforeach
                         <!-- End tt-Grid item -->
 
                     </div>

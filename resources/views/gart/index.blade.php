@@ -128,125 +128,69 @@
               ============================== -->
                         <div class="tt-grid-items-wrap isotope-items-wrap">
 
-                            <div class="tt-grid-item isotope-item people">
-                                <div class="ttgr-item-inner">
-                                    <div class="portfolio-grid-item">
-                                        <a href="single-project-1.html" class="pgi-image-wrap"
-                                            data-cursor="View<br>Project">
-                                            <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
-                                            <div class="pgi-image-holder cover-opacity-2">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                    <figure class="pgi-image ttgr-height">
-                                                        <img src="{{ asset('gart/gm-flora-0.jpg') }}" alt="image">
-                                                    </figure> <!-- /.pgi-image -->
-                                                </div> <!-- /.pgi-image-inner -->
-                                            </div> <!-- /.pgi-image-holder -->
-                                        </a> <!-- /.pgi-image-wrap -->
+                            @foreach ($galleries as $index => $gallery)
+                                @if ($index % 2 == 0)
+                                    <div class="tt-grid-item isotope-item people">
+                                        <div class="ttgr-item-inner">
+                                            <div class="portfolio-grid-item">
+                                                <a href="{{ route('gart.gallery', $gallery->slug) }}" class="pgi-image-wrap"
+                                                    data-cursor="View<br>Gallery">
+                                                    <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
+                                                    <div class="pgi-image-holder cover-opacity-2">
+                                                        <div class="pgi-image-inner anim-zoomin">
+                                                            <figure class="pgi-image ttgr-height">
+                                                                <img src="{{ $gallery->getImageURL() }}" alt="image">
+                                                            </figure> <!-- /.pgi-image -->
+                                                        </div> <!-- /.pgi-image-inner -->
+                                                    </div> <!-- /.pgi-image-holder -->
+                                                </a> <!-- /.pgi-image-wrap -->
 
-                                        <div class="pgi-caption">
-                                            <div class="pgi-caption-inner">
-                                                <h2 class="pgi-title">Flora</h2>
-                                                <div class="pgi-categories-wrap">
-                                                    <div class="pgi-category">Photo Product</div>
-                                                    <!-- <div class="pgi-category">Varia</div> -->
-                                                </div> <!-- /.pli-categories-wrap -->
-                                            </div> <!-- /.pgi-caption-inner -->
-                                        </div> <!-- /.pgi-caption -->
+                                                <div class="pgi-caption">
+                                                    <div class="pgi-caption-inner">
+                                                        <h2 class="pgi-title">{{ $gallery->title }}</h2>
+                                                        <div class="pgi-categories-wrap">
+                                                            <div class="pgi-category">{{ $gallery->category->name }}</div>
+                                                            <!-- <div class="pgi-category">Varia</div> -->
+                                                        </div> <!-- /.pli-categories-wrap -->
+                                                    </div> <!-- /.pgi-caption-inner -->
+                                                </div> <!-- /.pgi-caption -->
+                                            </div>
+                                            <!-- End portfolio grid item -->
+
+                                        </div> <!-- /.ttgr-item-inner -->
                                     </div>
-                                    <!-- End portfolio grid item -->
+                                @else
+                                    <div class="tt-grid-item isotope-item creative">
+                                        <div class="ttgr-item-inner">
+                                            <div class="portfolio-grid-item anim-parallax">
+                                                <a href="single-project-2.html" class="pgi-image-wrap"
+                                                    data-cursor="View<br>Project">
+                                                    <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
+                                                    <div class="pgi-image-holder cover-opacity-2">
+                                                        <div class="pgi-image-inner anim-zoomin">
+                                                            <figure class="pgi-image ttgr-height">
+                                                                <img src="{{ asset('gart/gm-moira-0.jpg') }}" alt="image">
+                                                            </figure> <!-- /.pgi-image -->
+                                                        </div> <!-- /.pgi-image-inner -->
+                                                    </div> <!-- /.pgi-image-holder -->
+                                                </a> <!-- /.pgi-image-wrap -->
 
-                                </div> <!-- /.ttgr-item-inner -->
-                            </div>
+                                                <div class="pgi-caption">
+                                                    <div class="pgi-caption-inner">
+                                                        <h2 class="pgi-title">Moira</h2>
+                                                        <div class="pgi-categories-wrap">
+                                                            <div class="pgi-category">Photo Product</div>
+                                                            <!-- <div class="pgi-category">Varia</div> -->
+                                                        </div> <!-- /.pli-categories-wrap -->
+                                                    </div> <!-- /.pgi-caption-inner -->
+                                                </div> <!-- /.pgi-caption -->
+                                            </div>
+                                            <!-- End portfolio grid item -->
 
-                            <div class="tt-grid-item isotope-item creative">
-                                <div class="ttgr-item-inner">
-                                    <div class="portfolio-grid-item anim-parallax">
-                                        <a href="single-project-2.html" class="pgi-image-wrap"
-                                            data-cursor="View<br>Project">
-                                            <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
-                                            <div class="pgi-image-holder cover-opacity-2">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                    <figure class="pgi-image ttgr-height">
-                                                        <img src="{{ asset('gart/gm-moira-0.jpg') }}" alt="image">
-                                                    </figure> <!-- /.pgi-image -->
-                                                </div> <!-- /.pgi-image-inner -->
-                                            </div> <!-- /.pgi-image-holder -->
-                                        </a> <!-- /.pgi-image-wrap -->
-
-                                        <div class="pgi-caption">
-                                            <div class="pgi-caption-inner">
-                                                <h2 class="pgi-title">Moira</h2>
-                                                <div class="pgi-categories-wrap">
-                                                    <div class="pgi-category">Photo Product</div>
-                                                    <!-- <div class="pgi-category">Varia</div> -->
-                                                </div> <!-- /.pli-categories-wrap -->
-                                            </div> <!-- /.pgi-caption-inner -->
-                                        </div> <!-- /.pgi-caption -->
+                                        </div> <!-- /.ttgr-item-inner -->
                                     </div>
-                                    <!-- End portfolio grid item -->
-
-                                </div> <!-- /.ttgr-item-inner -->
-                            </div>
-
-                            <div class="tt-grid-item isotope-item people">
-                                <div class="ttgr-item-inner">
-                                    <div class="portfolio-grid-item">
-                                        <a href="single-project-1.html" class="pgi-image-wrap"
-                                            data-cursor="View<br>Project">
-                                            <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
-                                            <div class="pgi-image-holder cover-opacity-2">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                    <figure class="pgi-image ttgr-height">
-                                                        <img src="{{ asset('gart/gm-kimmy-0.jpg') }}" alt="image">
-                                                    </figure> <!-- /.pgi-image -->
-                                                </div> <!-- /.pgi-image-inner -->
-                                            </div> <!-- /.pgi-image-holder -->
-                                        </a> <!-- /.pgi-image-wrap -->
-
-                                        <div class="pgi-caption">
-                                            <div class="pgi-caption-inner">
-                                                <h2 class="pgi-title">Kimmy</h2>
-                                                <div class="pgi-categories-wrap">
-                                                    <div class="pgi-category">Photo Product</div>
-                                                    <!-- <div class="pgi-category">Varia</div> -->
-                                                </div> <!-- /.pli-categories-wrap -->
-                                            </div> <!-- /.pgi-caption-inner -->
-                                        </div> <!-- /.pgi-caption -->
-                                    </div>
-                                    <!-- End portfolio grid item -->
-
-                                </div> <!-- /.ttgr-item-inner -->
-                            </div>
-
-                            <div class="tt-grid-item isotope-item creative">
-                                <div class="ttgr-item-inner">
-                                    <div class="portfolio-grid-item anim-parallax">
-                                        <a href="single-project-2.html" class="pgi-image-wrap"
-                                            data-cursor="View<br>Project">
-                                            <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
-                                            <div class="pgi-image-holder cover-opacity-2">
-                                                <div class="pgi-image-inner anim-zoomin">
-                                                    <figure class="pgi-image ttgr-height">
-                                                        <img src="{{ asset('gart/gm-wilma-0.jpg') }}" alt="image">
-                                                    </figure> <!-- /.pgi-image -->
-                                                </div> <!-- /.pgi-image-inner -->
-                                            </div> <!-- /.pgi-image-holder -->
-                                        </a> <!-- /.pgi-image-wrap -->
-
-                                        <div class="pgi-caption">
-                                            <div class="pgi-caption-inner">
-                                                <h2 class="pgi-title">Wilma</h2>
-                                                <div class="pgi-categories-wrap">
-                                                    <div class="pgi-category">Photo Product</div>
-                                                    <!-- <div class="pgi-category">Varia</div> -->
-                                                </div> <!-- /.pli-categories-wrap -->
-                                            </div> <!-- /.pgi-caption-inner -->
-                                        </div> <!-- /.pgi-caption -->
-                                    </div>
-                                    <!-- End portfolio grid item -->
-
-                                </div> <!-- /.ttgr-item-inner -->
-                            </div>
+                                @endif
+                            @endforeach
                         </div>
                         <!-- End tt-Grid items wrap  -->
 
