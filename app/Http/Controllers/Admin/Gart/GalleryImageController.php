@@ -37,33 +37,14 @@ class GalleryImageController extends Controller
     {
         DB::beginTransaction();
         try {
-            $galleryModel = Gallery::with('detailGalleries')->find($id);
+            $galleryModel = Gallery::gart()->with('detailGalleries')->find($id);
             $galleryDTO = $request->dataTransferObject();
 
-            if (!empty($request->galleries)) {
-                $imageService = new ImageService(
-                    imageRequest: $galleryDTO['galleries'],
-                    storeToFolder: 'images/gart/gallery/detail',
-                    imageName: date('dmyHis'),
-                );
-
-                $imagePaths = $imageService->executeMultipleImages();
-                $updatedKeys = array_keys($request->file('galleries'));
-                $existingPictures = $galleryModel->detailGalleries()->orderBy('id', 'asc')->get();
-
-                foreach ($updatedKeys as $index => $key) {
-                    $detailGallery = $existingPictures[$key] ?? null;
-
-                    if (!is_null($detailGallery) && isset($existingPictures[$key])) {
-                        Storage::disk('public')->delete('storage/images/gart/gallery/detail/' . $detailGallery->image);
-                        $detailGallery->update(['image' => $imagePaths[$index]]);
-                    } else {
-                        $galleryModel->detailGalleries()->create([
-                            'image' => $imagePaths[$index],
-                        ]);
-                    }
-                }
-            }
+            $this->storingPictureToStorage(
+                galleryModel: $galleryModel,
+                galleryDTO: $galleryDTO,
+                path: 'images/gart/gallery/detail'
+            );
 
             DB::commit();
 

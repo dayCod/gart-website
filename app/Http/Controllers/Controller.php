@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Models\DetailGallery;
+use App\Services\ImageService;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Routing\Controller as BaseController;
+use App\Http\Requests\Gallery\SaveGalleryImageRequest;
+use App\Models\Gallery;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
@@ -23,4 +28,39 @@ class Controller extends BaseController
      * @var string
      */
     const TYPE_AS_REISE = 'reise';
+
+    /**
+     * Stores multiple images to the specified storage path and updates the corresponding gallery model.
+     *
+     * @param Gallery $galleryModel The gallery model instance.
+     * @param array $galleryDTO An array containing the gallery data, including the images to be stored.
+     * @param string $path The storage path where the images will be saved.
+     */
+    public function storingPictureToStorage(Gallery $galleryModel, array $galleryDTO, string $path): void
+    {
+        if (!empty($galleryDTO['galleries'])) {
+            $imageService = new ImageService(
+                imageRequest: $galleryDTO['galleries'],
+                storeToFolder: $path,
+                imageName: date('dmyHis'),
+            );
+
+            $imagePaths = $imageService->executeMultipleImages();
+            $updatedKeys = array_keys($galleryDTO['galleries']);
+            $existingPictures = $galleryModel->detailGalleries()->orderBy('id', 'asc')->get();
+
+            foreach ($updatedKeys as $index => $key) {
+                $detailGallery = $existingPictures[$key] ?? null;
+
+                if (!is_null($detailGallery) && isset($existingPictures[$key])) {
+                    Storage::disk('public')->delete($path. '/' . $detailGallery->image);
+                    $detailGallery->update(['image' => $imagePaths[$index]]);
+                } else {
+                    $galleryModel->detailGalleries()->create([
+                        'image' => $imagePaths[$index],
+                    ]);
+                }
+            }
+        }
+    }
 }
