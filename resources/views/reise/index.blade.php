@@ -139,7 +139,7 @@
                                                     <div class="pgi-image-holder cover-opacity-2">
                                                         <div class="pgi-image-inner anim-zoomin">
                                                             <figure class="pgi-image ttgr-height">
-                                                                <img src="{{ $gallery->getImageURL() }}" alt="image">
+                                                                <img src="{{ $gallery->getImageURL(type: 'reise') }}" alt="image">
                                                             </figure> <!-- /.pgi-image -->
                                                         </div> <!-- /.pgi-image-inner -->
                                                     </div> <!-- /.pgi-image-holder -->

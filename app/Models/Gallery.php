@@ -17,7 +17,14 @@ class Gallery extends Model
      *
      * @var string
      */
-    const FOLDER_NAME = 'images/gart/gallery';
+    const GART_FOLDER_NAME = 'images/gart/gallery';
+
+    /**
+     * The name of the folder where gallery images are stored.
+     *
+     * @var string
+     */
+    const REISE_FOLDER_NAME = 'images/reise/gallery';
 
     /**
      * The database table name for the Gallery model.
@@ -98,9 +105,11 @@ class Gallery extends Model
      *
      * @return string The URL for the category's profile image.
      */
-    public function getImageURL()
+    public function getImageURL(string $type = 'gart')
     {
-        return asset('storage/' . self::FOLDER_NAME . '/' . $this->image);
+        return $type == 'gart'
+            ? asset('storage/' . self::GART_FOLDER_NAME . '/' . $this->image)
+            : asset('storage/' . self::REISE_FOLDER_NAME . '/' . $this->image);;
     }
 
     /**

@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.gart.gallery.image.form.save', $gallery_id) }}" class="row" method="POST"
+            <form action="{{ route('admin.reise.gallery.image.form.save', $gallery_id) }}" class="row" method="POST"
                 enctype="multipart/form-data">
                 @csrf
 
@@ -51,7 +51,7 @@
                     @else
                         @foreach ($pictures as $picture)
                             <div class="gallery-box">
-                                <img src="{{ $picture->getImageURL() }}" class="preview-gallery" alt="">
+                                <img src="{{ $picture->getImageURL(type: 'reise') }}" class="preview-gallery" alt="">
                                 <div class="gallery-button-group">
                                     <label for="" class="btn btn-sm btn-secondary mb-0 upload-gallery-button">
                                         <span class="tf-icons bx bx-upload me-1"></span>

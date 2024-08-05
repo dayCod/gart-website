@@ -9,7 +9,7 @@
         ============================= -->
         <div class="ph-image">
             <div class="ph-image-inner">
-                <img src="{{ $gallery->getImageURL() }}" alt="Image">
+                <img src="{{ $gallery->getImageURL(type: 'reise') }}" alt="Image">
             </div>
         </div>
         <!-- End page header image -->
@@ -191,11 +191,11 @@
 
                                         <!-- Begin tt-Gallery item
                                         =========================== -->
-                                        <a href="{{ $picture->getImageURL() }}" class="tt-gallery-item lg-trigger" data-cursor="View">
+                                        <a href="{{ $picture->getImageURL(type: 'reise') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
                                             <div class="tt-gallery-item-inner">
                                                 <div class="tt-gallery-image-wrap anim-zoomin">
                                                     <figure class="tt-gallery-image ttgr-height">
-                                                        <img src="{{ $picture->getImageURL() }}" alt="image">
+                                                        <img src="{{ $picture->getImageURL(type: 'reise') }}" alt="image">
                                                     </figure> <!-- /.tt-gallery-image -->
                                                 </div> <!-- /.tt-gallery-image-wrap -->
                                             </div> <!-- /.tt-gallery-item-inner -->
@@ -210,11 +210,11 @@
 
                                         <!-- Begin tt-Gallery item
                                         =========================== -->
-                                        <a href="{{ $picture->getImageURL() }}" class="tt-gallery-item lg-trigger" data-cursor="View">
+                                        <a href="{{ $picture->getImageURL(type: 'reise') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
                                             <div class="tt-gallery-item-inner">
                                                 <div class="tt-gallery-image-wrap anim-zoomin">
                                                     <figure class="tt-gallery-image ttgr-height">
-                                                        <img src="{{ $picture->getImageURL() }}" alt="image">
+                                                        <img src="{{ $picture->getImageURL(type: 'reise') }}" alt="image">
                                                     </figure> <!-- /.tt-gallery-image -->
                                                 </div> <!-- /.tt-gallery-image-wrap -->
                                             </div> <!-- /.tt-gallery-item-inner -->
@@ -229,11 +229,11 @@
 
                                         <!-- Begin tt-Gallery item
                                         =========================== -->
-                                        <a href="{{ $picture->getImageURL() }}" class="tt-gallery-item lg-trigger" data-cursor="View">
+                                        <a href="{{ $picture->getImageURL(type: 'reise') }}" class="tt-gallery-item lg-trigger" data-cursor="View">
                                             <div class="tt-gallery-item-inner">
                                                 <div class="tt-gallery-image-wrap anim-zoomin">
                                                     <figure class="tt-gallery-image ttgr-height">
-                                                        <img src="{{ $picture->getImageURL() }}" alt="image">
+                                                        <img src="{{ $picture->getImageURL(type: 'reise') }}" alt="image">
                                                     </figure> <!-- /.tt-gallery-image -->
                                                 </div> <!-- /.tt-gallery-image-wrap -->
                                             </div> <!-- /.tt-gallery-item-inner -->
@@ -274,12 +274,12 @@
             -->
             <div class="tt-page-nav tt-pn-scroll">
                 @if (!is_null($nextGallery))
-                    <a href="{{ route('gart.gallery', $nextGallery->slug) }}" class="tt-pn-link anim-fadeinup">
+                    <a href="{{ route('reise.gallery', $nextGallery->slug) }}" class="tt-pn-link anim-fadeinup">
                         <div class="tt-pn-title">Next Gallery</div>
                         <div class="tt-pn-hover-title">Next Gallery</div>
                     </a> <!-- /.tt-pn-link -->
                 @else
-                    <a href="{{ route('gart.galleries') }}" class="tt-pn-link anim-fadeinup">
+                    <a href="{{ route('reise.galleries') }}" class="tt-pn-link anim-fadeinup">
                         <div class="tt-pn-title">Explore</div>
                         <div class="tt-pn-hover-title">Discover Best Moments</div>
                     </a> <!-- /.tt-pn-link -->

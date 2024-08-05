@@ -9,7 +9,7 @@
         ============================= -->
         <div class="ph-image">
             <div class="ph-image-inner">
-                <img src="{{ $category->getImageURL() }}" alt="Image">
+                <img src="{{ $category->getImageURL(type: 'reise') }}" alt="Image">
             </div>
         </div>
         <!-- End page header image -->
@@ -137,12 +137,12 @@
                                     * Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"! Also no effect on small screens!).
                                     -->
                                     <div class="portfolio-grid-item">
-                                        <a href="{{ route('gart.gallery', $gallery->slug) }}" class="pgi-image-wrap" data-cursor="View<br>Gallery">
+                                        <a href="{{ route('reise.gallery', $gallery->slug) }}" class="pgi-image-wrap" data-cursor="View<br>Gallery">
                                             <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
                                             <div class="pgi-image-holder">
                                                 <div class="pgi-image-inner anim-zoomin">
                                                     <figure class="pgi-image ttgr-height">
-                                                        <img src="{{ $gallery->getImageURL() }}" alt="image">
+                                                        <img src="{{ $gallery->getImageURL(type: 'reise') }}" alt="image">
                                                     </figure> <!-- /.pgi-image -->
                                                 </div> <!-- /.pgi-image-inner -->
                                             </div> <!-- /.pgi-image-holder -->
@@ -151,7 +151,7 @@
                                         <div class="pgi-caption">
                                             <div class="pgi-caption-inner">
                                                 <h2 class="pgi-title">
-                                                    <a href="{{ route('gart.gallery', $gallery->slug) }}">
+                                                    <a href="{{ route('reise.gallery', $gallery->slug) }}">
                                                         {{ $gallery->title }}
                                                     </a>
                                                 </h2>

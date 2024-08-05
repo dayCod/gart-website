@@ -19,11 +19,11 @@
                     @foreach ($categories as $category)
                         <div class="swiper-slide">
 
-                            <a href="{{ route('gart.category', ['slug' => $category->slug]) }}" class="tt-portfolio-carousel-item" data-cursor="View<br>Category">
+                            <a href="{{ route('reise.category', ['slug' => $category->slug]) }}" class="tt-portfolio-carousel-item" data-cursor="View<br>Category">
 
                                 <!-- Use class "cover-opacity-*" to set an image overlay if needed. For example "cover-opacity-2". More info in the file "helper.css". -->
                                 <figure class="tt-pci-image-wrap cover-opacity-2">
-                                    <img class="tt-pci-image swiper-lazy" src="{{ $category->getImageURL() }}" data-src="{{ $category->getImageURL() }}" alt="Image">
+                                    <img class="tt-pci-image swiper-lazy" src="{{ $category->getImageURL(type: 'reise') }}" data-src="{{ $category->getImageURL(type: 'reise') }}" alt="Image">
                                 </figure> <!-- /.tt-pci-image-wrap -->
 
                                 <div class="tt-pci-caption-front">

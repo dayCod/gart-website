@@ -16,7 +16,14 @@ class Category extends Model
      *
      * @var string
      */
-    const FOLDER_NAME = 'images/gart/category';
+    const GART_FOLDER_NAME = 'images/gart/category';
+
+    /**
+     * The name of the folder where category images are stored.
+     *
+     * @var string
+     */
+    const REISE_FOLDER_NAME = 'images/reise/category';
 
     /**
      * The database table name for the Category model.
@@ -80,9 +87,11 @@ class Category extends Model
      *
      * @return string The URL for the category's profile image.
      */
-    public function getImageURL()
+    public function getImageURL(string $type = 'gart')
     {
-        return asset('storage/' . self::FOLDER_NAME . '/' . $this->image);
+        return $type == 'gart'
+            ? asset('storage/' . self::GART_FOLDER_NAME . '/' . $this->image)
+            : asset('storage/' . self::REISE_FOLDER_NAME . '/' . $this->image);
     }
 
     /**
