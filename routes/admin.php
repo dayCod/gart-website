@@ -4,12 +4,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\LogoutController;
-use App\Http\Controllers\Admin\Gart\CategoryController as GartCategoryController;
-use App\Http\Controllers\Admin\Gart\GalleryController as GartGalleryController;
-use App\Http\Controllers\Admin\Gart\GalleryImageController as GartGalleryImageController;
-use App\Http\Controllers\Admin\Reise\CategoryController as ReiseCategoryController;
-use App\Http\Controllers\Admin\Reise\GalleryController as ReiseGalleryController;
-use App\Http\Controllers\Admin\Reise\GalleryImageController as ReiseGalleryImageController;
+
+use App\Http\Controllers\Admin\Gart\{
+    CategoryController as GartCategoryController,
+    GalleryController as GartGalleryController,
+    GalleryImageController as GartGalleryImageController,
+    ServiceController as GartServiceController,
+};
+
+use App\Http\Controllers\Admin\Reise\{
+    CategoryController as ReiseCategoryController,
+    GalleryController as ReiseGalleryController,
+    GalleryImageController as ReiseGalleryImageController,
+    ServiceController as ReiseServiceController,
+};
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -46,6 +54,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
             });
         });
 
+        // Service Resources
+        Route::group(['prefix' => 'service', 'as' => 'service.'], function () {
+            Route::get('/', [GartServiceController::class, 'index'])->name('index');
+            Route::get('/create', [GartServiceController::class, 'create'])->name('create');
+            Route::post('/store', [GartServiceController::class, 'store'])->name('store');
+            Route::get('/{id}/edit', [GartServiceController::class, 'edit'])->name('edit');
+            Route::put('/{id}/update', [GartServiceController::class, 'update'])->name('update');
+            Route::delete('/{id}/destroy', [GartServiceController::class, 'destroy'])->name('destroy');
+        });
+
     });
 
     // All These Resources under Reise Stories Prefix
@@ -77,6 +95,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
                 Route::delete('/{pictureId}/destroy', [ReiseGalleryImageController::class, 'destroy'])->name('destroy');
             });
         });
+
+        // Service Resources
+        Route::group(['prefix' => 'service', 'as' => 'service.'], function () {
+            Route::get('/', [ReiseServiceController::class, 'index'])->name('index');
+            Route::get('/create', [ReiseServiceController::class, 'create'])->name('create');
+            Route::post('/store', [ReiseServiceController::class, 'store'])->name('store');
+            Route::get('/{id}/edit', [ReiseServiceController::class, 'edit'])->name('edit');
+            Route::put('/{id}/update', [ReiseServiceController::class, 'update'])->name('update');
+            Route::delete('/{id}/destroy', [ReiseServiceController::class, 'destroy'])->name('destroy');
+        });
+
 
     });
 });

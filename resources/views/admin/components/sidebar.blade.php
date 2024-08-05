@@ -52,10 +52,16 @@
                         <div data-i18n="Gallery">Gallery</div>
                     </a>
                 </li>
+
+                <li class="menu-item @if(Route::is('admin.gart.service.*')) active @endif">
+                    <a href="{{ route('admin.gart.service.index') }}" class="menu-link">
+                        <div data-i18n="Service">Service</div>
+                    </a>
+                </li>
             </ul>
         </li>
 
-        <!-- Gart Studio -->
+        <!-- Reise Stories -->
         <li class="menu-item @if(Route::is('admin.reise.*')) active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-group"></i>
@@ -74,6 +80,13 @@
                         <div data-i18n="Gallery">Gallery</div>
                     </a>
                 </li>
+
+                <li class="menu-item @if(Route::is('admin.reise.service.*')) active @endif">
+                    <a href="{{ route('admin.reise.service.index') }}" class="menu-link">
+                        <div data-i18n="Service">Service</div>
+                    </a>
+                </li>
+
             </ul>
         </li>
     </ul>
