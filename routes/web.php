@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Gart\HomeController as GartHomeController;
+use App\Http\Controllers\Reise\HomeController as ReiseHomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -18,7 +19,11 @@ Route::group(['prefix' => '/gart', 'as' => 'gart.'], function () {
 });
 
 Route::group(['prefix' => 'reise', 'as' => 'reise.'], function () {
-    //
+    Route::get('/index', [ReiseHomeController::class, 'index'])->name('index');
+    Route::get('/category', [ReiseHomeController::class, 'categories'])->name('categories');
+    Route::get('/category/{slug}', [ReiseHomeController::class, 'category'])->name('category');
+    Route::get('/gallery', [ReiseHomeController::class, 'galleries'])->name('galleries');
+    Route::get('/gallery/{slug}', [ReiseHomeController::class, 'gallery'])->name('gallery');
 });
 
 // Admin Route Lists

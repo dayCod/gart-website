@@ -93,7 +93,7 @@
                             <div class="tt-grid-item isotope-item pages">
                                 <div class="ttgr-item-inner">
                                     <div class="portfolio-grid-item">
-                                        <a href="landing-page-1.html" class="pgi-image-wrap" target="_blank" rel="noopener"
+                                        <a href="{{ route('reise.index') }}" class="pgi-image-wrap" target="_blank" rel="noopener"
                                             data-cursor="View">
                                             <div class="pgi-image-holder">
                                                 <div class="pgi-image-inner anim-zoomin">
@@ -108,7 +108,7 @@
                                         <div class="pgi-caption">
                                             <div class="pgi-caption-inner">
                                                 <h2 class="pgi-title">
-                                                    <a href="landing-page-1.html" target="_blank" rel="noopener">Reise
+                                                    <a href="{{ route('reise.index') }}" target="_blank" rel="noopener">Reise
                                                         Stories</a>
                                                 </h2>
                                                 <div class="pgi-categories-wrap">
