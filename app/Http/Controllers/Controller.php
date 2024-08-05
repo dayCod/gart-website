@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DetailGallery;
 use App\Services\ImageService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Routing\Controller as BaseController;
-use App\Http\Requests\Gallery\SaveGalleryImageRequest;
 use App\Models\Gallery;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;

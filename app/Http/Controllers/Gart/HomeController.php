@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Gallery;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * @return View
+     * Retrieves the latest 4 galleries and returns a view with them.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function index(): View
     {
@@ -25,7 +26,9 @@ class HomeController extends Controller
     }
 
     /**
-     * @return View
+     * Retrieves all categories and returns a view with them.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function categories(): View
     {
@@ -35,7 +38,10 @@ class HomeController extends Controller
     }
 
     /**
-     * @return View
+     * Retrieves a category by its slug and returns a view with the category and its associated galleries.
+     *
+     * @param string $slug The slug of the category to retrieve.
+     * @return \Illuminate\Contracts\View\View The view with the category and its galleries.
      */
     public function category(string $slug): View
     {
@@ -49,7 +55,9 @@ class HomeController extends Controller
     }
 
     /**
-     * @return View
+     * Retrieves the latest 6 galleries and returns a view with them.
+     *
+     * @return \Illuminate\Contracts\View\View The view with the latest 6 galleries.
      */
     public function galleries(): View
     {
@@ -62,7 +70,10 @@ class HomeController extends Controller
     }
 
     /**
-     * @return View
+     * Retrieves a gallery by its slug and returns a view with the gallery and the next gallery.
+     *
+     * @param string $slug The slug of the gallery to retrieve.
+     * @return \Illuminate\Contracts\View\View The view with the gallery and the next gallery.
      */
     public function gallery(string $slug): View
     {

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * @return View
+     * Renders the welcome view.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function index(): View
     {
@@ -16,7 +17,9 @@ class HomeController extends Controller
     }
 
     /**
-     * @return View
+     * Renders the "about-us" view.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function aboutUs(): View
     {
@@ -24,7 +27,9 @@ class HomeController extends Controller
     }
 
     /**
-     * @return View
+     * Renders the "about-me" view.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function aboutMe(): View
     {
@@ -32,7 +37,9 @@ class HomeController extends Controller
     }
 
     /**
-     * @return View
+     * Renders the "contact" view.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function contactUs(): View
     {

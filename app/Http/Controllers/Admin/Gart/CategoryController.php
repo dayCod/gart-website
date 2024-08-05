@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\Gart;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Services\ImageService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;

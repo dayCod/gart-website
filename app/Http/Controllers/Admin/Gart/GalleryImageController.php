@@ -3,17 +3,11 @@
 namespace App\Http\Controllers\Admin\Gart;
 
 use App\Models\Gallery;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Models\DetailGallery;
-use App\Services\ImageService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Database\Query\Builder;
-use Illuminate\Support\Facades\Storage;
-use Rembon\SyncCollection\SyncCollection;
 use App\Http\Requests\Gallery\SaveGalleryImageRequest;
 
 class GalleryImageController extends Controller
@@ -21,7 +15,8 @@ class GalleryImageController extends Controller
     /**
      * Renders the view for the gallery image form.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @param int $id The ID of the gallery to display the images for.
+     * @return \Illuminate\Contracts\View\View The view for the gallery image form.
      */
     public function form(int $id): View
     {
@@ -33,6 +28,13 @@ class GalleryImageController extends Controller
         ]);
     }
 
+    /**
+     * Saves a new gallery image to the database and the file system.
+     *
+     * @param \App\Http\Requests\Gallery\SaveGalleryImageRequest $request The request containing the gallery image data.
+     * @param int $id The ID of the gallery to save the image for.
+     * @return \Illuminate\Http\RedirectResponse Redirects back to the previous page with a success or error message.
+     */
     public function formSave(SaveGalleryImageRequest $request, int $id): RedirectResponse
     {
         DB::beginTransaction();

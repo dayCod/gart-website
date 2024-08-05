@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +32,12 @@ class DashboardController extends Controller
         return view('admin.pages.dashboard.profile');
     }
 
+    /**
+     * Updates the authenticated user's profile information, including their profile image.
+     *
+     * @param \App\Http\Requests\Dashboard\ProfileRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function profileAction(ProfileRequest $request): RedirectResponse
     {
         $profileDTO = $request->dataTransferObject();
