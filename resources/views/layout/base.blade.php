@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Portfolio Grid Classic | Tank - Creative Portfolio Showcase HTML Website Template by Themetorium</title>
+    <title>Gart Page | @yield('title')</title>
 
     <meta charset="utf-8">
     <meta name="description"

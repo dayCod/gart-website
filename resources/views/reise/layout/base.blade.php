@@ -4,7 +4,7 @@
 <head>
 
 		<!-- Title -->
-		<title>Tank - Creative Portfolio Showcase HTML Website Template by Themetorium</title>
+		<title>Reise Stories | @yield('title')</title>
 
 		<!-- Meta -->
 		<meta charset="utf-8">

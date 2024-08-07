@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Reise;
 
 use App\Models\Gallery;
+use App\Models\Service;
 use App\Models\Category;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -22,7 +23,9 @@ class HomeController extends Controller
             ->limit(4)
             ->get();
 
-        return view('reise.index', compact('galleries'));
+        $services = Service::reise()->latest()->get();
+
+        return view('reise.index', compact('galleries', 'services'));
     }
 
     /**

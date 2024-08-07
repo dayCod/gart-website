@@ -1,5 +1,7 @@
 @extends('reise.layout.base')
 
+@section('title', 'Gallery')
+
 @section('content')
 
 <div id="page-header" class="ph-full ph-inline ph-bg-image ph-image-shadow ph-image-cover-5 ph-content-parallax">

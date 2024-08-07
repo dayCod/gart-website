@@ -1,5 +1,7 @@
 @extends('reise.layout.base')
 
+@section('title', 'Home')
+
 @section('content')
     <!-- ========================
          ///// Begin page header /////
@@ -97,7 +99,7 @@
                     <h3 class="tt-heading-subtitle text-gray">Latest Projects</h3>
                     <h2 class="tt-heading-title">Works</h2>
                     <div class="tt-btn tt-btn-link margin-top-20">
-                        <a href="portfolio-grid-creative-1.html" data-hover="See All Works">See All Works</a>
+                        <a href="{{ route('reise.galleries') }}" data-hover="See All Works">See All Works</a>
                     </div>
                 </div>
                 <!-- End tt-Heading -->
@@ -133,7 +135,7 @@
                                     <div class="tt-grid-item isotope-item people">
                                         <div class="ttgr-item-inner">
                                             <div class="portfolio-grid-item">
-                                                <a href="{{ route('gart.gallery', $gallery->slug) }}" class="pgi-image-wrap"
+                                                <a href="{{ route('reise.gallery', $gallery->slug) }}" class="pgi-image-wrap"
                                                     data-cursor="View<br>Gallery">
                                                     <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
                                                     <div class="pgi-image-holder cover-opacity-2">
@@ -163,13 +165,13 @@
                                     <div class="tt-grid-item isotope-item creative">
                                         <div class="ttgr-item-inner">
                                             <div class="portfolio-grid-item anim-parallax">
-                                                <a href="single-project-2.html" class="pgi-image-wrap"
-                                                    data-cursor="View<br>Project">
+                                                <a href="{{ route('reise.gallery', $gallery->slug) }}" class="pgi-image-wrap"
+                                                    data-cursor="View<br>Gallery">
                                                     <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
                                                     <div class="pgi-image-holder cover-opacity-2">
                                                         <div class="pgi-image-inner anim-zoomin">
                                                             <figure class="pgi-image ttgr-height">
-                                                                <img src="{{ asset('gart/gm-moira-0.jpg') }}" alt="image">
+                                                                <img src="{{ $gallery->getImageURL(type: 'reise') }}" alt="image">
                                                             </figure> <!-- /.pgi-image -->
                                                         </div> <!-- /.pgi-image-inner -->
                                                     </div> <!-- /.pgi-image-holder -->
@@ -177,9 +179,9 @@
 
                                                 <div class="pgi-caption">
                                                     <div class="pgi-caption-inner">
-                                                        <h2 class="pgi-title">Moira</h2>
+                                                        <h2 class="pgi-title">{{ $gallery->title }}</h2>
                                                         <div class="pgi-categories-wrap">
-                                                            <div class="pgi-category">Photo Product</div>
+                                                            <div class="pgi-category">{{ $gallery->category->name }}</div>
                                                             <!-- <div class="pgi-category">Varia</div> -->
                                                         </div> <!-- /.pli-categories-wrap -->
                                                     </div> <!-- /.pgi-caption-inner -->
@@ -233,45 +235,29 @@
             * Add class "is-open" to the "tt-accordion-content" to make this content open by default.
             -->
                 <div class="tt-accordion tt-ac-xlg tt-ac-borders">
-                    <div class="tt-accordion-item anim-fadeinup">
-                        <div class="tt-accordion-heading">
-                            <h3 class="tt-ac-head-title">Photo Product</h3>
-                            <div class="tt-accordion-subtext">Mauris mauris ante</div>
-                            <div class="tt-accordion-caret-wrap">
-                                <div class="tt-accordion-caret magnetic-item"></div>
-                            </div>
-                        </div> <!-- /.tt-accordion-heading -->
-                        <div class="tt-accordion-content max-width-800">
-                            <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
 
-                            <div class="tt-btn tt-btn-link">
-                                <a href="dummy-page.html" data-hover="Read More">Read More</a>
-                            </div>
-                        </div> <!-- /.tt-accordion-content -->
-                    </div> <!-- /.tt-accordion-item -->
+                    @foreach($services as $service)
+                        <div class="tt-accordion-item anim-fadeinup">
+                            <div class="tt-accordion-heading">
+                                <h3 class="tt-ac-head-title">{{ $service->title }}</h3>
+                                <div class="tt-accordion-subtext">{{ $service->sub_title }}</div>
+                                <div class="tt-accordion-caret-wrap">
+                                    <div class="tt-accordion-caret magnetic-item"></div>
+                                </div>
+                            </div> <!-- /.tt-accordion-heading -->
+                            <div class="tt-accordion-content max-width-800">
+                                <p>
+                                    {{ $service->description }}
+                                </p>
 
-                    <div class="tt-accordion-item anim-fadeinup">
-                        <div class="tt-accordion-heading">
-                            <h3 class="tt-ac-head-title">Photo Studio</h3>
-                            <div class="tt-accordion-subtext">Vivamus nisi</div>
-                            <div class="tt-accordion-caret-wrap">
-                                <div class="tt-accordion-caret magnetic-item"></div>
-                            </div>
-                        </div> <!-- /.tt-accordion-heading -->
-                        <div class="tt-accordion-content max-width-800">
-                            <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-
-                            <div class="tt-btn tt-btn-link">
-                                <a href="dummy-page.html" data-hover="Read More">Read More</a>
-                            </div>
-                        </div> <!-- /.tt-accordion-content -->
-                    </div> <!-- /.tt-accordion-item -->
+                                @if (!is_null($service->attachment_url))
+                                    <div class="tt-btn tt-btn-link">
+                                        <a href="{{ $service->attachment_url }}" data-hover="Visit URL">Visit URL</a>
+                                    </div>
+                                @endif
+                            </div> <!-- /.tt-accordion-content -->
+                        </div> <!-- /.tt-accordion-item -->
+                    @endforeach
 
                 </div>
                 <!-- End accordion -->

@@ -1,5 +1,7 @@
 @extends('layout.base')
 
+@section('title', 'Home')
+
 @section('content')
     <div id="page-header" class="ph-full ph-cap-xlg ph-image-cover-2 ph-content-parallax">
         <div class="page-header-inner tt-wrap">

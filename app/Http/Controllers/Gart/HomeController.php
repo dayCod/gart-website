@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Gart;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Gallery;
+use App\Models\Service;
 use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
@@ -22,7 +23,9 @@ class HomeController extends Controller
             ->limit(4)
             ->get();
 
-        return view('gart.index', compact('galleries'));
+        $services = Service::gart()->latest()->get();
+
+        return view('gart.index', compact('galleries', 'services'));
     }
 
     /**

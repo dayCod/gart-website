@@ -1,5 +1,7 @@
 @extends('reise.layout.base')
 
+@section('title', 'Categories')
+
 @section('content')
 
 <div id="content-wrap">
