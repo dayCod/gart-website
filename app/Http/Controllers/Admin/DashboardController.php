@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Dashboard\ProfileRequest;
+use App\Models\Category;
+use App\Models\DetailGallery;
+use App\Models\Gallery;
+use App\Models\Service;
 use App\Services\ImageService;
 
 class DashboardController extends Controller
@@ -19,7 +23,17 @@ class DashboardController extends Controller
      */
     public function index(): View
     {
-        return view('admin.pages.dashboard.index');
+        $totalCategories = Category::count();
+        $totalGalleries = Gallery::count();
+        $totalPictures = DetailGallery::count();
+        $totalServices = Service::count();
+
+        return view('admin.pages.dashboard.index', [
+            'totalCategories' => $totalCategories,
+            'totalGalleries' => $totalGalleries,
+            'totalPictures' => $totalPictures,
+            'totalServices' => $totalServices,
+        ]);
     }
 
     /**
