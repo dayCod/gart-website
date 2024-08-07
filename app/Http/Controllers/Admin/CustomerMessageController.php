@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class CustomerMessageController extends Controller
 {
+    /**
+     * Display a listing of the customer messages.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index(): View
     {
         $customerMessages = CustomerMessage::latest()->get();

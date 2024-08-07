@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Gallery;
+use App\Models\Service;
+use App\Models\Visitor;
+use App\Models\Category;
+use App\Models\Location;
+use App\Models\DetailGallery;
+use App\Services\ImageService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Dashboard\ProfileRequest;
-use App\Models\Category;
-use App\Models\DetailGallery;
-use App\Models\Gallery;
-use App\Models\Location;
-use App\Models\Service;
-use App\Services\ImageService;
+use App\Models\CustomerMessage;
+use App\Models\WhatsappClick;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -24,16 +28,79 @@ class DashboardController extends Controller
      */
     public function index(): View
     {
+        // dd(Visitor::query()->delete(), CustomerMessage::query()->delete(), WhatsappClick::query()->delete(), Location::query()->delete());
         $totalCategories = Category::count();
         $totalGalleries = Gallery::count();
         $totalPictures = DetailGallery::count();
         $totalServices = Service::count();
+
+        $totalDailyVisitors = Visitor::whereDate('created_at', Carbon::today())->count();
+        $totalDailyCustomerMessages = CustomerMessage::whereDate('created_at', Carbon::today())->count();
+        $totalDailyWhatsappClicks = WhatsappClick::whereDate('created_at', Carbon::today())->count();
+
+        $dailyVisitors = array();
+        $dailyCustomerMessages = array();
+        $dailyWhatsappClicks = array();
+
+        foreach (Visitor::orderBy('created_at', 'asc')->get() as $visitor) {
+            $dailyVisitors[] = [
+                'day' => $visitor->created_at->format('Y-m-d'),
+                'count' => Visitor::whereDay('created_at', $visitor->created_at->format('d'))->count(),
+            ];
+        }
+
+        foreach (CustomerMessage::orderBy('created_at', 'asc')->get() as $customerMessage) {
+            $dailyCustomerMessages[] = [
+                'day' => $customerMessage->created_at->format('Y-m-d'),
+                'count' => CustomerMessage::whereDay('created_at', $customerMessage->created_at->format('d'))->count(),
+            ];
+        }
+
+        foreach (WhatsappClick::orderBy('created_at', 'asc')->get() as $whatsappClick) {
+            $dailyWhatsappClicks[] = [
+                'day' => $whatsappClick->created_at->format('Y-m-d'),
+                'count' => WhatsappClick::whereDay('created_at', $whatsappClick->created_at->format('d'))->count(),
+            ];
+        }
+
+        $setDailyVisitors = collect($dailyVisitors)
+            ->unique()
+            ->sortBy(function ($item) {
+                return Carbon::parse($item['day']);
+            })
+            ->take(Carbon::now()->format('t'));
+
+        $setDailyCustomerMessages = collect($dailyCustomerMessages)
+            ->unique()
+            ->sortBy(function ($item) {
+                return Carbon::parse($item['day']);
+            })
+            ->take(Carbon::now()->format('t'));
+
+        $setDailyWhatsappClicks = collect($dailyWhatsappClicks)
+            ->unique()
+            ->sortBy(function ($item) {
+                return Carbon::parse($item['day']);
+            })
+            ->take(Carbon::now()->format('t'));
+
+        // dd(
+        //     $setDailyWhatsappClicks->values()->all(),
+        //     $setDailyVisitors->values()->all(),
+        //     $setDailyCustomerMessages->values()->all()
+        // );
 
         return view('admin.pages.dashboard.index', [
             'totalCategories' => $totalCategories,
             'totalGalleries' => $totalGalleries,
             'totalPictures' => $totalPictures,
             'totalServices' => $totalServices,
+            'totalDailyVisitors' => $totalDailyVisitors,
+            'totalDailyCustomerMessages' => $totalDailyCustomerMessages,
+            'totalDailyWhatsappClicks' => $totalDailyWhatsappClicks,
+            'setDailyVisitors' => $setDailyVisitors->values()->all(),
+            'setDailyCustomerMessages' => $setDailyCustomerMessages->values()->all(),
+            'setDailyWhatsappClicks' => $setDailyWhatsappClicks->values()->all(),
         ]);
     }
 

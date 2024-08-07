@@ -1,4 +1,5 @@
 @extends('admin.layouts.master')
+
 @section('title', 'Dashboard')
 
 @section('content')
@@ -16,7 +17,7 @@
                         </div>
                         <div class="card-icon align-self-center">
                             <span class="badge bg-label-primary rounded p-2">
-                                <i class="bx bx-user-pin bx-sm"></i>
+                                <i class="bx bx-book-bookmark bx-sm"></i>
                             </span>
                         </div>
                     </div>
@@ -36,7 +37,7 @@
                         </div>
                         <div class="card-icon align-self-center">
                             <span class="badge bg-label-primary rounded p-2">
-                                <i class="bx bx-group bx-sm"></i>
+                                <i class="bx bx-image-alt bx-sm"></i>
                             </span>
                         </div>
                     </div>
@@ -56,7 +57,7 @@
                         </div>
                         <div class="card-icon align-self-center">
                             <span class="badge bg-label-primary rounded p-2">
-                                <i class="bx bx-map-pin bx-sm"></i>
+                                <i class="bx bx-image-alt bx-sm"></i>
                             </span>
                         </div>
                     </div>
@@ -76,7 +77,7 @@
                         </div>
                         <div class="card-icon align-self-center">
                             <span class="badge bg-label-primary rounded p-2">
-                                <i class="bx bx-trip bx-sm"></i>
+                                <i class="bx bx-box bx-sm"></i>
                             </span>
                         </div>
                     </div>
@@ -91,12 +92,12 @@
                         <div class="card-info">
                             <p class="card-text mb-2">Total Daily Visitor</p>
                             <div class="d-flex align-items-end mb-2">
-                                <h4 class="card-title mb-0 me-2">200</h4>
+                                <h4 class="card-title mb-0 me-2">{{ $totalDailyVisitors }}</h4>
                             </div>
                         </div>
                         <div class="card-icon align-self-center">
                             <span class="badge bg-label-primary rounded p-2">
-                                <i class="bx bx-book-bookmark bx-sm"></i>
+                                <i class="bx bx-user-pin bx-sm"></i>
                             </span>
                         </div>
                     </div>
@@ -109,14 +110,14 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div class="card-info">
-                            <p class="card-text mb-2">Total Customer Message</p>
+                            <p class="card-text mb-2">Total Daily Customer Message</p>
                             <div class="d-flex align-items-end mb-2">
-                                <h4 class="card-title mb-0 me-2">123</h4>
+                                <h4 class="card-title mb-0 me-2">{{ $totalDailyCustomerMessages }}</h4>
                             </div>
                         </div>
                         <div class="card-icon align-self-center">
                             <span class="badge bg-label-primary rounded p-2">
-                                <i class="bx bx-question-mark bx-sm"></i>
+                                <i class="bx bx-message-dots bx-sm"></i>
                             </span>
                         </div>
                     </div>
@@ -129,9 +130,9 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <div class="card-info">
-                            <p class="card-text mb-2">Total Whatsapp Click</p>
+                            <p class="card-text mb-2">Total Daily Whatsapp Click</p>
                             <div class="d-flex align-items-end mb-2">
-                                <h4 class="card-title mb-0 me-2">1000</h4>
+                                <h4 class="card-title mb-0 me-2">{{ $totalDailyWhatsappClicks }}</h4>
                             </div>
                         </div>
                         <div class="card-icon align-self-center">
@@ -148,7 +149,7 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">
-                        Statistic of Gart Studio Website
+                        Daily Growth Statistic of Gart Studio Website
                     </h5>
                 </div>
                 <div class="card-body">
@@ -162,19 +163,23 @@
 
 @push('script')
     <script>
+        const dailyVisitorData = JSON.parse('{!! json_encode($setDailyVisitors) !!}')
+        const dailyCustomerMessageData = JSON.parse('{!! json_encode($setDailyCustomerMessages) !!}')
+        const dailyWhatsappClickData = JSON.parse('{!! json_encode($setDailyWhatsappClicks) !!}')
+
         var options = {
             series: [{
                 name: 'Daily Visitor',
                 type: 'column',
-                data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160]
+                data: dailyVisitorData.map(row => row.count)
             }, {
                 name: 'Daily Customer Message',
                 type: 'line',
-                data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16]
+                data: dailyCustomerMessageData.map(row => row.count)
             }, {
                 name: 'Daily Whatsapp Click',
                 type: 'line',
-                data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16]
+                data: dailyWhatsappClickData.map(row => row.count)
             }],
             chart: {
                 height: 450,
@@ -190,9 +195,7 @@
                 enabled: true,
                 enabledOnSeries: []
             },
-            labels: ['01 Jan 2001', '02 Jan 2001', '03 Jan 2001', '04 Jan 2001', '05 Jan 2001', '06 Jan 2001',
-                '07 Jan 2001', '08 Jan 2001', '09 Jan 2001', '10 Jan 2001', '11 Jan 2001', '12 Jan 2001'
-            ],
+            labels: dailyVisitorData.map(row => row.day),
             yaxis: [{
                 title: {
                     text: '',

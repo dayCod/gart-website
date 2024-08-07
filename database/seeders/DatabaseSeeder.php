@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,9 +15,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'admin@gart.com',
-        ]);
+        $user = User::where('email', 'admin@gart.com')->first();
+
+        if (empty($user)) {
+            User::factory()->create([
+                'name' => 'Super Admin',
+                'email' => 'admin@gart.com',
+            ]);
+        }
+
+        $this->call(VisitorSeeder::class);
+        $this->call(CustomerMessageSeeder::class);
+        $this->call(WhatsappClickSeeder::class);
     }
 }
