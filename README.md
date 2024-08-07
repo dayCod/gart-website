@@ -1,16 +1,6 @@
 # Gart Studio Website
 Welcome to Gart Studio Project! We specialize in creating stunning photo products that turn your cherished moments into timeless treasures. Our website is designed to showcase our photography services and provide an exceptional user experience for our clients.
 
-## About
-Gart Studio Project offers a range of high-quality photography services, including:
-- `Custom Photo Sessions`: Tailored to your needs, capturing your special moments with artistry and precision.
-- `Premium Photo Products`: Beautifully crafted prints, albums, and custom framing to preserve and showcase your memories.
-
-## Features
-- `User-Friendly Interface`: Navigate our website with ease to explore our services, view our portfolio, and book sessions.
-- `High-Quality Imagery`: Experience the excellence of our work through high-resolution galleries and detailed product descriptions.
-- `Seamless Booking`: Easily schedule your photo sessions and manage bookings directly through our platform.
-
 ## System Requirements
 ```bash
 PHP : ^8.0
