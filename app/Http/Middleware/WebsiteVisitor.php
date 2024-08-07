@@ -34,9 +34,13 @@ class WebsiteVisitor
                 }
             );
 
-            $location = Location::get('103.47.133.83');
-
             $visitor = Visitor::create(Cache::get($cacheName));
+
+            $ip_address = env('APP_ENV') == 'production'
+                ? $visitor->ip_address
+                : env('APP_TESTING_IP_ADDRESS');
+
+            $location = Location::get($ip_address);
 
             $visitor->location()->create([
                 'model_name' => Visitor::class,

@@ -17,7 +17,7 @@
                     We specialize in capturing unforgettable moments through our lens. Share your story with
                     us and let's create lasting memories together.</div>
                 <div class="tt-btn tt-btn-primary ph-appear margin-top-60">
-                    <a href="https://api.whatsapp.com/send/?phone=6288808967543&text=Hi there! I'm interested with your works. Could you provide more details on the pricing, and availability? Looking forward to your response. Thank you!&type=phone_number&app_absent=0"
+                    <a href="{{ route('whatsapp-link') }}"
                         target="_blank" rel="noopener" data-hover="Contact Here!">Contact Whatsapp Here!</a>
                 </div>
             </div>

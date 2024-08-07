@@ -28,6 +28,13 @@ class Controller extends BaseController
     const TYPE_AS_REISE = 'reise';
 
     /**
+     * Represents the WhatsApp phone number for the 'gart' type of the application.
+     *
+     * @var string
+     */
+    const GART_WHATSAPP_PHONE_NUMBER = '6288808967543';
+
+    /**
      * Stores multiple images to the specified storage path and updates the corresponding gallery model.
      *
      * @param Gallery $galleryModel The gallery model instance.
