@@ -61,3 +61,11 @@ if want to customize the port:
 php artisan serve --port={8001/8002/...}
 ```
 
+### 9. Login Credential
+```bash
+email: admin@gart.com
+password: gartstudioproject
+```
+
+Enjoy exploring the Gart Studio Project website and creating beautiful photo products! If you have any questions or need assistance, please don't hesitate to contact us.
+
