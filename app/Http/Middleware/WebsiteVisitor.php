@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use App\Models\Visitor;
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
+use Stevebauman\Location\Facades\Location;
+use Symfony\Component\HttpFoundation\Response;
+
+class WebsiteVisitor
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        $response = $next($request);
+        $cacheName = 'guest:'.$request->getClientIp();
+
+        if (!Cache::has($cacheName)) {
+            Cache::remember($cacheName, 60*60*24,
+                function () use ($request) {
+                    return [
+                        'session_id' => session()->getId(),
+                        'ip_address' => $request->getClientIp(),
+                        'user_agent' => $request->userAgent(),
+                        'is_guest' => Auth::check() ? false : true,
+                    ];
+                }
+            );
+
+            $location = Location::get('103.47.133.83');
+
+            $visitor = Visitor::create(Cache::get($cacheName));
+
+            $visitor->location()->create([
+                'model_name' => Visitor::class,
+                'country_name' => $location->countryName,
+                'region_name' => $location->regionName,
+                'city_name' => $location->cityName,
+                'zip_code' => $location->zipCode,
+                'postal_code' => $location->postalCode,
+                'latitude' => $location->latitude,
+                'longitude' => $location->longitude,
+                'timezone' => $location->timezone,
+            ]);
+        }
+
+        return $response;
+    }
+}
