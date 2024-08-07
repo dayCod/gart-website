@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\WebsiteVisitorController;
+use App\Http\Controllers\Admin\WhatsappClickController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\LogoutController;
+use App\Http\Controllers\Admin\CustomerMessageController;
 
 use App\Http\Controllers\Admin\Gart\{
     CategoryController as GartCategoryController,
@@ -21,8 +24,28 @@ use App\Http\Controllers\Admin\Reise\{
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::get('/profile', [DashboardController::class, 'profileView'])->name('dashboard.profile.view');
-    Route::post('/profile', [DashboardController::class, 'profileAction'])->name('dashboard.profile.action');
+    Route::get('/location/{modelId}', [DashboardController::class, 'location'])->name('dashboard.location');
+
+    // All These Resource under Dashboard Profile Prefix
+    Route::group(['prefix' => 'profile', 'as' => 'dashboard.profile.'], function () {
+        Route::get('/', [DashboardController::class, 'profileView'])->name('view');
+        Route::post('/', [DashboardController::class, 'profileAction'])->name('action');
+    });
+
+    // All These Resource under Dashboard Web Visitor Prefix
+    Route::group(['prefix' => 'webvisitor', 'as' => 'dashboard.webvisitor.'], function () {
+        Route::get('/', [WebsiteVisitorController::class, 'index'])->name('index');
+    });
+
+    // All These Resources under Whatsapp Click Prefix
+    Route::group(['prefix' => 'waclick', 'as' => 'dashboard.waclick.'], function () {
+        Route::get('/', [WhatsappClickController::class, 'index'])->name('index');
+    });
+
+    // All These Resource under Customer Message Prefix
+    Route::group(['prefix' => 'customer-message', 'as' => 'dashboard.customermessage.'], function () {
+        Route::get('/', [CustomerMessageController::class, 'index'])->name('index');
+    });
 
     // All These Resources under Gart Prefix
     Route::group(['prefix' => 'gart', 'as' => 'gart.'], function () {

@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/lightgallery/css/lightgallery.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/helper.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/vendor/libs/iziToast/css/iziToast.min.css') }}">
 
     @if (request()->routeIs('index'))
         <style>
@@ -159,6 +160,9 @@
     <script src="{{ asset('assets/vendor/lightgallery/js/lightgallery-all.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery.mousewheel.min.js') }}"></script>
     <script src="{{ asset('assets/js/theme.js') }}"></script>
+    <script src="{{ asset('assets/admin/vendor/libs/iziToast/js/iziToast.min.js') }}"></script>
+
+    @include('admin.components.notification')
 
 </body>
 

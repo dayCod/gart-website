@@ -11,6 +11,7 @@ use App\Http\Requests\Dashboard\ProfileRequest;
 use App\Models\Category;
 use App\Models\DetailGallery;
 use App\Models\Gallery;
+use App\Models\Location;
 use App\Models\Service;
 use App\Services\ImageService;
 
@@ -76,5 +77,19 @@ class DashboardController extends Controller
         return redirect()
             ->back()
             ->with('toastSuccess', 'Profile updated successfully');
+    }
+
+    /**
+     * Displays the location details view for the specified location ID.
+     *
+     * @param int $modelId The Model ID of the location to display.
+     * @return \Illuminate\Contracts\View\View The view containing the location details.
+     */
+    public function location(int $modelId): View
+    {
+        $location = Location::where('model_id', $modelId)->first();
+        $gmapsLocation = "https://www.google.com/maps/place/{$location->latitude}, {$location->longitude}/";
+
+        return view('admin.pages.dashboard.location', compact('location', 'gmapsLocation'));
     }
 }

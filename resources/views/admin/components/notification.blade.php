@@ -5,6 +5,7 @@
             iziToast.success({
                 title: 'Success',
                 message : '{{ session('toastSuccess') }}',
+                position: 'topRight',
             });
         })
     </script>
@@ -14,6 +15,7 @@
             iziToast.error({
                 title: 'Failed',
                 message : '{{ session('toastError') }}',
+                position: 'topRight',
             });
         })
     </script>
@@ -23,6 +25,7 @@
             iziToast.info({
                 title: 'Info'
                 message : '{{ session('toastInfo') }}',
+                position: 'topRight',
             });
         })
     </script>
@@ -32,6 +35,7 @@
             iziToast.warning({
                 title: 'Caution'
                 message : '{{ session('toastWarning') }}',
+                position: 'topRight',
             });
         })
     </script>

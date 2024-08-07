@@ -29,14 +29,35 @@
         <li class="menu-item @if(Route::is('admin.dashboard.profile.view')) active @endif">
             <a href="{{ route('admin.dashboard.profile.view') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
-                <div data-i18n="Profil Saya">Profil Saya</div>
+                <div data-i18n="Profil Saya">My Profile</div>
+            </a>
+        </li>
+
+        <li class="menu-item @if(Route::is('admin.dashboard.webvisitor.*')) active @endif">
+            <a href="{{ route('admin.dashboard.webvisitor.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-voice"></i>
+                <div data-i18n="Profil Saya">Web Visitor</div>
+            </a>
+        </li>
+
+        <li class="menu-item @if(Route::is('admin.dashboard.waclick.*')) active @endif">
+            <a href="{{ route('admin.dashboard.waclick.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxl-whatsapp"></i>
+                <div data-i18n="Profil Saya">Whatsapp Click</div>
+            </a>
+        </li>
+
+        <li class="menu-item @if(Route::is('admin.dashboard.customermessage.*')) active @endif">
+            <a href="{{ route('admin.dashboard.customermessage.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-message-dots"></i>
+                <div data-i18n="Profil Saya">Customer Message</div>
             </a>
         </li>
 
         <!-- Gart Studio -->
         <li class="menu-item @if(Route::is('admin.gart.*')) active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-group"></i>
+                <i class="menu-icon tf-icons bx bx-camera-movie"></i>
                 <div data-i18n="Users">Gart Studio</div>
             </a>
 
@@ -64,7 +85,7 @@
         <!-- Reise Stories -->
         <li class="menu-item @if(Route::is('admin.reise.*')) active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-group"></i>
+                <i class="menu-icon tf-icons bx bx-camera"></i>
                 <div data-i18n="Users">Reise Stories</div>
             </a>
 

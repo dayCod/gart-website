@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerMessageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Gart\HomeController as GartHomeController;
 use App\Http\Controllers\Reise\HomeController as ReiseHomeController;
@@ -11,6 +12,7 @@ Route::group(['middleware' => 'visitor'], function () {
     Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
     Route::get('/about-me', [HomeController::class, 'aboutMe'])->name('about-me');
     Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
+    Route::post('/contact-us', [CustomerMessageController::class, 'sendMessage'])->name('send-message');
     Route::get('/whatsapp-link', [WhatsappClickController::class, 'redirectingToWhatsapp'])->name('whatsapp-link');
 
     Route::group(['prefix' => '/gart', 'as' => 'gart.'], function () {
