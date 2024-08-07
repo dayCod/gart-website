@@ -67,5 +67,6 @@ email: admin@gart.com
 password: gartstudioproject
 ```
 
-Enjoy exploring the Gart Studio Project website and creating beautiful photo products! If you have any questions or need assistance, please don't hesitate to contact us.
+Enjoy exploring the Gart Studio Project website and creating beautiful photo products! If you have any questions or need assistance, please don't hesitate to contact us:
+- Telegram: @DayCodes.
 
