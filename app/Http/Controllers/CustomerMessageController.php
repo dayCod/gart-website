@@ -29,9 +29,9 @@ class CustomerMessageController extends Controller
                 $request->validate([
                     'name' => ['required', 'string'],
                     'email' => ['required', 'email'],
-                    'subject' => ['required', 'string'],
-                    'type' => ['required', 'in:business,feedback,other'],
-                    'message' => ['required', 'string']
+                    'phone_number' => ['nullable', 'string'],
+                    'type' => ['required', 'in:gart,reise,other'],
+                    'message' => ['nullable', 'string']
                 ])
             );
 

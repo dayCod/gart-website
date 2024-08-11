@@ -146,22 +146,22 @@
                             </div> <!-- /.tt-row -->
 
                             <div class="tt-form-group">
-                                <label>Subject <span class="required">*</span></label>
-                                <input class="tt-form-control" type="text" name="subject" placeholder="" required>
+                                <label>Phone Number</label>
+                                <input class="tt-form-control" type="text" name="phone_number" placeholder="" required>
                             </div>
 
                             <div class="tt-form-group">
                                 <label>Select an option <span class="required">*</span></label>
                                 <select class="tt-form-control" name="type" required>
                                     <option value="" disabled selected>Please choose an option</option>
-                                    <option value="business">Business</option>
-                                    <option value="feedback">Feedback</option>
+                                    <option value="gart">Gart Studio</option>
+                                    <option value="reise">Reise Stories</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
 
                             <div class="tt-form-group">
-                                <label>Message <span class="required">*</span></label>
+                                <label>Message </label>
                                 <textarea class="tt-form-control" rows="6" name="message" placeholder="" required></textarea>
                             </div>
 

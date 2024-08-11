@@ -13,6 +13,48 @@
     </ol>
 </nav>
 
+<div class="row mb-4">
+    <div class="col-md-6 col-sm-12">
+        <a href="#" class="card card-hover h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="card-info">
+                        <p class="card-text mb-2">Gart Studio Interactions</p>
+                        <div class="d-flex align-items-end mb-2">
+                            <h4 class="card-title mb-0 me-2">{{ $countGartStudioInteraction }}</h4>
+                        </div>
+                    </div>
+                    <div class="card-icon align-self-center">
+                        <span class="badge bg-label-primary rounded p-2">
+                            <i class="bx bx-image-alt bx-sm"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+        <a href="#" class="card card-hover h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="card-info">
+                        <p class="card-text mb-2">Reise Stories Interactions</p>
+                        <div class="d-flex align-items-end mb-2">
+                            <h4 class="card-title mb-0 me-2">{{ $countReiseStoriesInteraction }}</h4>
+                        </div>
+                    </div>
+                    <div class="card-icon align-self-center">
+                        <span class="badge bg-label-primary rounded p-2">
+                            <i class="bx bx-image-alt bx-sm"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
 <!-- Tabel Customer Message -->
 <div class="card">
     <div class="d-flex align-items-center justify-content-between pe-4  ">
@@ -31,7 +73,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Subject</th>
+                        <th>Phone Number</th>
                         <th>Type</th>
                         <th>Message</th>
 
@@ -44,8 +86,8 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $customerMessage->name }}</td>
                             <td>{{ $customerMessage->email }}</td>
-                            <td>{{ $customerMessage->subject }}</td>
-                            <td>{{ $customerMessage->type }}</td>
+                            <td>{{ $customerMessage->phone_number }}</td>
+                            <td>{{ $customerMessage->type == 'gart' ? 'Gart Studio' : 'Reise Stories' }}</td>
                             <td>{{ $customerMessage->message }}</td>
                             <td>
                                 <a href="{{ route('admin.dashboard.location', $customerMessage->id) }}" class="btn btn-primary btn-icon btn-sm" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-html="true" data-bs-original-title="Show Location">
