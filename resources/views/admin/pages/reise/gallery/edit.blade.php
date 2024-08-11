@@ -84,6 +84,13 @@
                     @enderror
                 </div>
                 <div class="col-12 mb-3">
+                    <label for="instagram_post_url" class="form-label">Instagram Post URL</label>
+                    <input type="text" name="instagram_post_url" id="instagram_post_url" class="form-control @error('instagram_post_url') is-invalid @enderror" placeholder="{{ __('pages.form.placeholder', ['prop' => 'Instagram Post URL']) }}" value="{{ old('instagram_post_url', $gallery->instagram_post_url) }}">
+                    @error('instagram_post_url')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-12 mb-3">
                     <label for="tags" class="form-label required">Tags</label>
                     <input type="text" name="tags" id="tags" class="form-control separatorTags @error('tags') is-invalid @enderror" placeholder="{{ __('pages.form.placeholder', ['prop' => 'Tags']) }}" value="{{ old('tags', implode(',', $gallery->tags)) }}" required>
                     <i><small>*To enter multiple or submit tags, you can use `tabs` on your keyboard</small></i>

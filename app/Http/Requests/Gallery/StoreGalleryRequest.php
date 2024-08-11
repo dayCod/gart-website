@@ -32,6 +32,7 @@ class StoreGalleryRequest extends FormRequest
                     $fail('The ' . $attr . ' must be a valid year.');
                 }
             }],
+            'instagram_post_url' => ['nullable', 'url'],
             'tags' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'image' => ['required', 'image']

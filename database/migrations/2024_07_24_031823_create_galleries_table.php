@@ -27,6 +27,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('image');
             $table->enum('type', ['gart', 'reise']);
+            $table->string('instagram_post_url');
 
             $table->timestamps();
         });

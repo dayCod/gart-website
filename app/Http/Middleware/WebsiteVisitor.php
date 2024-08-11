@@ -44,10 +44,10 @@ class WebsiteVisitor
 
             $visitor->location()->create([
                 'model_name' => Visitor::class,
-                'country_name' => $location->countryName,
-                'region_name' => $location->regionName,
-                'city_name' => $location->cityName,
-                'zip_code' => $location->zipCode,
+                'country_name' => $location->countryName ?? null,
+                'region_name' => $location->regionName ?? null,
+                'city_name' => $location->cityName ?? null,
+                'zip_code' => $location->zipCode ?? null,
                 'postal_code' => $location->postalCode,
                 'latitude' => $location->latitude,
                 'longitude' => $location->longitude,

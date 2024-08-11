@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $this->call(VisitorSeeder::class);
-        $this->call(CustomerMessageSeeder::class);
-        $this->call(WhatsappClickSeeder::class);
+        // $this->call(VisitorSeeder::class);
+        // $this->call(CustomerMessageSeeder::class);
+        // $this->call(WhatsappClickSeeder::class);
     }
 }
