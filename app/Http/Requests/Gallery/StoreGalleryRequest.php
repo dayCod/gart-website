@@ -68,6 +68,7 @@ class StoreGalleryRequest extends FormRequest
             'description' => $this->description,
             'image' => $this->image,
             'category_id' => $this->category_id,
+            'instagram_post_url' => $this->instagram_post_url,
         ];
     }
 }

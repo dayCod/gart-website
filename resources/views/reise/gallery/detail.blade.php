@@ -95,12 +95,11 @@
             <div class="ph-share-close cursor-close"><div class="bg-noise"></div></div>
             <div class="ph-share-inner">
                 <h1 class="ph-share-title ph-share-appear">Spread the Word!</h1>
-                <div class="ph-share-subtitle ph-share-appear">Share this project with your friends</div>
+                <div class="ph-share-subtitle ph-share-appear">Share this project to your friends</div>
 
                 <div class="social-buttons ph-share-appear">
                     <ul>
-                        <li><a href="#0" class="magnetic-item" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#0" class="magnetic-item" title="Share on Instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="{{ "https://wa.me/?text=".urlencode($gallery->instagram_post_url." Newest Post from Reise Stories") }} }}" class="magnetic-item" title="Share on Whatsapp"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                 </div> <!-- /.social-buttons -->
 
