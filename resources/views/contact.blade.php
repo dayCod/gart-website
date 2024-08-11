@@ -1,5 +1,7 @@
 @extends('layout.base')
 
+@section('title', 'Contact')
+
 @section('content')
     <div id="page-header" class="ph-full ph-cap-xxlg ph-center ph-image-cropped ph-image-cover-2 ph-content-parallax">
         <div class="page-header-inner tt-wrap">

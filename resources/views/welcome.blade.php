@@ -7,7 +7,7 @@
         <div class="page-header-inner tt-wrap">
             <div class="ph-image">
                 <div class="ph-image-inner">
-                    <img src="{{ asset('assets/img/hero-img.jpg') }}" alt="Image" style="border-radius: 10px;">
+                    <img src="{{ asset('gart/hero-2.jpeg') }}" alt="Image" style="border-radius: 10px;">
                 </div>
             </div>
             <div class="ph-caption">

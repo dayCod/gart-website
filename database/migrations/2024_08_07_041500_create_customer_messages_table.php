@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('subject')->nullable();
-            $table->enum('type', ['business', 'feedback', 'other']);
+            $table->enum('type', ['gart', 'reise', 'other']);
             $table->text('message');
 
             $table->timestamps();

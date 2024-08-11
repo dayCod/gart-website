@@ -24,7 +24,7 @@
            ============================= -->
             <div class="ph-image">
                 <div class="ph-image-inner">
-                    <img src="{{ asset('gart/indonesian-women-wedding.jpg') }}" alt="Image">
+                    <img src="{{ asset('gart/reise-studio-hero.jpeg') }}" alt="Image">
                 </div>
             </div>
             <!-- End page header image -->

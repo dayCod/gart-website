@@ -1,5 +1,7 @@
 @extends('layout.base')
 
+@section('title', 'About Us')
+
 @section('content')
     <div id="page-header" class="ph-full ph-cap-xxlg ph-center ph-image-cropped ph-image-cover-4 ph-content-parallax">
         <div class="page-header-inner tt-wrap">
@@ -70,7 +72,7 @@
 
                     <div class="tt-col-lg-8">
 
-                        <div class="text-xxlg font-alter">
+                        <div class="font-alter" style="font-size: 15pt;">
                             <p class="anim-fadeinup">
                                 Every moment I create always leaves a deep impression. I believe that every story has the power to become an inseparable part of your journey.
                             </p>

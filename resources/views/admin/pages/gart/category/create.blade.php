@@ -42,7 +42,7 @@
                 @enderror
             </div>
             <div class="col-12 mb-3">
-                <label for="description" class="form-label required">Description</label>
+                <label for="description" class="form-label">Description</label>
                 <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="5" placeholder="{{ __('pages.form.placeholder', ['prop' => 'Description']) }}">{{ old('description') }}</textarea>
                 @error('description')
                     <div class="invalid-feedback">{{ $message }}</div>

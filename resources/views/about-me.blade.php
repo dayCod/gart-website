@@ -1,5 +1,7 @@
 @extends('layout.base')
 
+@section('title', 'About Me')
+
 @section('content')
 
 <div id="page-header" class="ph-full ph-cap-xxlg ph-center ph-image-cropped ph-image-cover-4 ph-content-parallax">
@@ -60,7 +62,7 @@
 <div id="page-content">
     <div class="tt-section">
         <div class="tt-section-inner tt-wrap max-width-900">
-            <div class="text-xxlg font-alter text-gray-2">
+            <div class="font-alter text-gray-2" style="font-size: 15pt;">
                 <p class="anim-fadeinup">Hello, my name is <strong class="text-white">Tegar Hedriansyah</strong>. seasoned photographer who has dedicated his life to the art of photography. With over a decade of experience capturing beautiful moments, Tegar is known for his high dedication and commitment to perfection in every shot.</p>
 
                 <p class="anim-fadeinup">Born with a keen eye for detail and a natural talent for capturing the essence of every subject, I began my photography career as a hobby that evolved into a passionate profession. I believe that every picture has a story to tell, and through my lens, I reveal the beauty and emotions often hidden from ordinary view.</p>
