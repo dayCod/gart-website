@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="flex-grow-1">
                                     <span class="fw-medium d-block">{{ auth()->user()?->name }}</span>
-                                    <small class="text-muted">Administrator</small>
+                                    <small class="text-muted">Owner</small>
                                 </div>
                             </div>
                         </a>

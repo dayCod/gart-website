@@ -80,11 +80,15 @@
                         <ul class="tt-contact-info padding-bottom-40 text-gray">
                             <li class="anim-fadeinup">
                                 <span class="tt-ci-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <a href="https://maps.app.goo.gl/7Z7xRZ35Wrte7w7Y9" class="tt-link">Gart Studio Project</a>
+                            </li>
+                            <li class="anim-fadeinup">
+                                <span class="tt-ci-icon"><i class="fas fa-map-marker-alt"></i></span>
                                 Griya Taman Banjarwangi , Jalan Pepaya Block B4 1A, Banjar Wangi, Kec. Ciawi, Kabupaten Bogor, Jawa Barat 16720
                             </li>
                             <li class="anim-fadeinup">
                                 <span class="tt-ci-icon"><i class="fas fa-phone"></i></span>
-                                <a href="tel:+123456789000" class="tt-link">(+62) 822-1086-6763</a>
+                                <a href="{{ route('whatsapp-link') }}" class="tt-link">(+62) 822-1086-6763</a>
                             </li>
                             <li class="anim-fadeinup">
                                 <span class="tt-ci-icon"><i class="fas fa-envelope"></i></span>

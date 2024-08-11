@@ -27,8 +27,8 @@
                             <li><a href="https://www.instagram.com/gartstudioproject/"
                                     class="magnetic-item" target="_blank" rel="noopener">Ig.</a>
                             </li>
-                            <li><a href="https://www.youtube.com/" class="magnetic-item"
-                                    target="_blank" rel="noopener">Yt.</a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61561661487570" class="magnetic-item"
+                                    target="_blank" rel="noopener">Fb.</a></li>
                         </ul>
                     </div>
                 </div>
