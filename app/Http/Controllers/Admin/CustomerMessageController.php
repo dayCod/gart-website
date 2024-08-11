@@ -17,9 +17,16 @@ class CustomerMessageController extends Controller
     public function index(): View
     {
         $customerMessageModel = CustomerMessage::query();
-        $customerMessages = $customerMessageModel->latest()->get();
-        $countGartStudioInteraction = $customerMessageModel->where('type', 'gart')->count();
-        $countReiseStoriesInteraction = $customerMessageModel->where('type', 'reise')->count();
+        $customerMessages = $customerMessageModel
+            ->latest()
+            ->whereDate('created_at', '>', now()->subDays(7))
+            ->get();
+        $countGartStudioInteraction = CustomerMessage::where('type', 'gart')
+            ->whereDate('created_at', '>', now()->subDays(7))
+            ->count();
+        $countReiseStoriesInteraction = CustomerMessage::where('type', 'reise')
+            ->whereDate('created_at', '>', now()->subDays(7))
+            ->count();
 
         return view('admin.pages.dashboard.customer-message.index', compact('customerMessages', 'countGartStudioInteraction', 'countReiseStoriesInteraction'));
     }

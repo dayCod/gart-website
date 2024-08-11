@@ -7,7 +7,7 @@
         <div class="page-header-inner tt-wrap">
             <div class="ph-image">
                 <div class="ph-image-inner">
-                    <img src="assets/img/page-header/ph-3.jpg" alt="Image">
+                    <img src="{{ asset('gart/contact-bg.jpeg') }}" alt="Image">
                 </div>
             </div>
             <!-- End page header image -->
@@ -154,7 +154,7 @@
                                 <label>Select an option <span class="required">*</span></label>
                                 <select class="tt-form-control" name="type" required>
                                     <option value="" disabled selected>Please choose an option</option>
-                                    <option value="gart">Gart Studio</option>
+                                    <option value="gart">Gart Studio Project</option>
                                     <option value="reise">Reise Stories</option>
                                     <option value="other">Other</option>
                                 </select>
