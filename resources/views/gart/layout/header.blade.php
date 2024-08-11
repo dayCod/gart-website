@@ -13,8 +13,8 @@
 							<div class="tt-logo">
 								<a href="{{ route('index') }}">
 									<!-- Hint: You may need to change the img height to match your logo type. You can do this from the "theme.css" file (find: ".tt-logo img"). -->
-									<img src="{{ asset('gart-logo-0.png') }}" class="tt-logo-light magnetic-item" alt="Logo"> <!-- logo light -->
-									<img src="" class="tt-logo-dark magnetic-item" alt="Logo"> <!-- logo dark -->
+									<img src="{{ asset('gart-logo-0.png') }}" class="tt-logo-light magnetic-item" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor"> <!-- logo light -->
+									<img src="" class="tt-logo-dark magnetic-item" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor"> <!-- logo dark -->
 								</a>
 							</div>
 							<!-- End logo -->

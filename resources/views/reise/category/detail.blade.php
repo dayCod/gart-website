@@ -11,7 +11,7 @@
         ============================= -->
         <div class="ph-image">
             <div class="ph-image-inner">
-                <img src="{{ $category->getImageURL(type: 'reise') }}" alt="Image">
+                <img src="{{ $category->getImageURL(type: 'reise') }}" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
             </div>
         </div>
         <!-- End page header image -->
@@ -144,7 +144,7 @@
                                             <div class="pgi-image-holder">
                                                 <div class="pgi-image-inner anim-zoomin">
                                                     <figure class="pgi-image ttgr-height">
-                                                        <img src="{{ $gallery->getImageURL(type: 'reise') }}" alt="image">
+                                                        <img src="{{ $gallery->getImageURL(type: 'reise') }}" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
                                                     </figure> <!-- /.pgi-image -->
                                                 </div> <!-- /.pgi-image-inner -->
                                             </div> <!-- /.pgi-image-holder -->

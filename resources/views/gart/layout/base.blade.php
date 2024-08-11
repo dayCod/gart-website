@@ -7,8 +7,8 @@
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="description"
-        content="Download Tank - Creative Portfolio Showcase HTML Website Template that comes with rich features and well-commented code. Made by Themetorium.">
-    <meta name="author" content="themetorium.net">
+        content="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
+    <meta name="author" content="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
 
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -79,7 +79,7 @@
             <div class="ptr-preloader">
                 <div class="ptr-prel-content">
                     <!-- Hint: You may need to change the img height and opacity to match your logo type. You can do this from the "theme.css" file (find: ".ptr-prel-image"). -->
-                    <img src="{{ asset('gart-logo-0.png') }}" class="ptr-prel-image tt-logo-light" alt="Logo">
+                    <img src="{{ asset('gart-logo-0.png') }}" class="ptr-prel-image tt-logo-light" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
                 </div> <!-- /.ptr-prel-content -->
             </div> <!-- /.ptr-preloader -->
         </div>

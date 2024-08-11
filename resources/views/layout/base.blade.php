@@ -6,8 +6,8 @@
 
     <meta charset="utf-8">
     <meta name="description"
-        content="Download Tank - Creative Portfolio Showcase HTML Website Template that comes with rich features and well-commented code. Made by Themetorium.">
-    <meta name="author" content="themetorium.net">
+        content="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
+    <meta name="author" content="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
@@ -128,7 +128,7 @@
             <div class="ptr-overlay"></div>
             <div class="ptr-preloader">
                 <div class="ptr-prel-content">
-                    <img src="{{ asset('gart-logo-0.png') }}" class="ptr-prel-image tt-logo-light" alt="Logo">
+                    <img src="{{ asset('gart-logo-0.png') }}" class="ptr-prel-image tt-logo-light" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
                 </div>
             </div>
         </div>

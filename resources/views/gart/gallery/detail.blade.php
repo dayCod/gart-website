@@ -11,7 +11,7 @@
         ============================= -->
         <div class="ph-image">
             <div class="ph-image-inner">
-                <img src="{{ $gallery->getImageURL() }}" alt="Image">
+                <img src="{{ $gallery->getImageURL() }}" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
             </div>
         </div>
         <!-- End page header image -->
@@ -196,7 +196,7 @@
                                             <div class="tt-gallery-item-inner">
                                                 <div class="tt-gallery-image-wrap anim-zoomin">
                                                     <figure class="tt-gallery-image ttgr-height">
-                                                        <img src="{{ $picture->getImageURL() }}" alt="image">
+                                                        <img src="{{ $picture->getImageURL() }}" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
                                                     </figure> <!-- /.tt-gallery-image -->
                                                 </div> <!-- /.tt-gallery-image-wrap -->
                                             </div> <!-- /.tt-gallery-item-inner -->
@@ -215,7 +215,7 @@
                                             <div class="tt-gallery-item-inner">
                                                 <div class="tt-gallery-image-wrap anim-zoomin">
                                                     <figure class="tt-gallery-image ttgr-height">
-                                                        <img src="{{ $picture->getImageURL() }}" alt="image">
+                                                        <img src="{{ $picture->getImageURL() }}" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
                                                     </figure> <!-- /.tt-gallery-image -->
                                                 </div> <!-- /.tt-gallery-image-wrap -->
                                             </div> <!-- /.tt-gallery-item-inner -->
@@ -234,7 +234,7 @@
                                             <div class="tt-gallery-item-inner">
                                                 <div class="tt-gallery-image-wrap anim-zoomin">
                                                     <figure class="tt-gallery-image ttgr-height">
-                                                        <img src="{{ $picture->getImageURL() }}" alt="image">
+                                                        <img src="{{ $picture->getImageURL() }}" alt="Gart Studio - Photo Studio, Wedding Terbaik Di Bogor">
                                                     </figure> <!-- /.tt-gallery-image -->
                                                 </div> <!-- /.tt-gallery-image-wrap -->
                                             </div> <!-- /.tt-gallery-item-inner -->
